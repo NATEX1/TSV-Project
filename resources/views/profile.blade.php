@@ -364,7 +364,7 @@
                                                             </div>
                                                             <div>
                                                                 <small><i class="bi bi-calendar2-x"></i>
-                                                                    <span>{{__('messages.end_date')}}:
+                                                                    <span>{{ __('messages.end_date') }}:
                                                                         {{ \Carbon\Carbon::parse($activity['stop_date'])->format('d/m/Y') }}</span></small>
                                                             </div>
                                                         </div>
@@ -398,7 +398,6 @@
 
                                         <!-- Joined Activities -->
                                         @if (!empty($joinedActivities) && count($joinedActivities) > 0)
-
                                             @php
                                                 $joinedActivitiesArray = (array) $joinedActivities;
 
@@ -422,7 +421,7 @@
                                                 });
                                             @endphp
 
-                                            <p class="text-muted mb-2">กิจกรรมที่เข้าร่วมแล้ว</p>
+                                            <p class="text-muted mb-2">{{ __('messages.joined_activities') }}</p>
 
                                             @foreach ($joinedActivitiesArray as $activity)
                                                 <div class="border rounded p-4 mb-4">
@@ -446,12 +445,14 @@
                                                             <div>
                                                                 <small><i class="bi bi-calendar-event"></i>
                                                                     <span>{{ __('messages.start_date') }}:
-                                                                        {{ \Carbon\Carbon::parse($activity['events_start'])->format('d/m/Y') }}</span></small>
+                                                                        {{ \Carbon\Carbon::parse($activity['events_start'])->format('d/m/Y') }}</span>
+                                                                </small>
                                                             </div>
                                                             <div>
                                                                 <small><i class="bi bi-calendar2-x"></i>
                                                                     <span>{{ __('messages.end_date') }}:
-                                                                        {{ \Carbon\Carbon::parse($activity['events_stop'])->format('d/m/Y') }}</span></small>
+                                                                        {{ \Carbon\Carbon::parse($activity['events_stop'])->format('d/m/Y') }}</span>
+                                                                </small>
                                                             </div>
                                                         </div>
 
@@ -489,7 +490,6 @@
 
                                                 <div class="modal fade"
                                                     id="addReportActivityModal-{{ $activity['id'] }}">
-
                                                     <div class="modal-dialog modal-dialog-centered modal-lg">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -506,12 +506,13 @@
                                                                     @csrf
                                                                     <div class="row">
                                                                         <div class="col-12">
-                                                                            <label>หมวดหมู่</label>
+                                                                            <label>{{ __('messages.category') }}</label>
                                                                             <select name="group_id"
                                                                                 class="form-select" required>
                                                                                 <option value="" disabled
-                                                                                    selected>--
-                                                                                    เลือกหมวดหมู่ --</option>
+                                                                                    selected>
+                                                                                    {{ __('messages.select_category') }}
+                                                                                </option>
                                                                                 @foreach ($eventGroups as $group)
                                                                                     <option
                                                                                         value="{{ $group['id'] }}">
@@ -522,12 +523,13 @@
                                                                         </div>
 
                                                                         <div class="col-12">
-                                                                            <label>รายงานผลการปฎิบัติงาน</label>
-                                                                            <textarea name="report" class="form-control" rows="10" placeholder="รายงานผลการปฎิบัติงาน" required></textarea>
+                                                                            <label>{{ __('messages.activity_report') }}</label>
+                                                                            <textarea name="report" class="form-control" rows="10"
+                                                                                placeholder="{{ __('messages.activity_report_placeholder') }}" required></textarea>
                                                                         </div>
 
                                                                         <div class="col-12">
-                                                                            <label>รูปภาพ</label>
+                                                                            <label>{{ __('messages.images') }}</label>
                                                                             <input type="file" name="images[]"
                                                                                 class="form-control" accept="image/*"
                                                                                 multiple
@@ -548,11 +550,12 @@
                                                                 <div>
                                                                     <button class="btn p-2" style="font-size: 12px"
                                                                         onclick="document.getElementById('addReportActivityForm-{{ $activity['id'] }}').submit()">
-                                                                        ส่งรายงาน
+                                                                        {{ __('messages.submit_report_button') }}
                                                                     </button>
                                                                     <button class="btn btn-border p-2"
-                                                                        style="font-size: 12px">
-                                                                        ยกเลิก
+                                                                        style="font-size: 12px"
+                                                                        data-bs-dismiss="modal">
+                                                                        {{ __('messages.cancel') }}
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -566,20 +569,23 @@
                                                         <div class="modal-dialog modal-dialog-centered modal-lg">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title">รายงาน:
+                                                                    <h5 class="modal-title">
+                                                                        {{ __('messages.report') }}:
                                                                         {{ $activity['name_' . $lang] }}</h5>
                                                                     <button type="button" class="btn-close"
                                                                         data-bs-dismiss="modal"></button>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <p class="mb-1"><strong>รายงานวันที่:</strong>
+                                                                    <p class="mb-1">
+                                                                        <strong>{{ __('messages.report_date') }}:</strong>
                                                                         {{ \Carbon\Carbon::parse($activity['report']->create_date)->format('d/m/Y - H:i') }}
                                                                     </p>
-                                                                    <p class="mb-1"><strong>หมวดหมู่:</strong>
+                                                                    <p class="mb-1">
+                                                                        <strong>{{ __('messages.category') }}:</strong>
                                                                         {{ $activity['report']->events_group->{$lang} }}
                                                                     </p>
                                                                     <p class="mb-1 text-break">
-                                                                        <strong>รายละเอียด:</strong>
+                                                                        <strong>{{ __('messages.details') }}:</strong>
                                                                         {{ $activity['report']->detail_report }}
                                                                     </p>
 
@@ -589,7 +595,7 @@
                                                                                 <a href="{{ checkImageUrl('storage/images/reports/' . $img) }}"
                                                                                     target="_blank">
                                                                                     <img src="{{ checkImageUrl('storage/images/reports/' . $img) }}"
-                                                                                        alt="Report Image"
+                                                                                        alt="{{ __('messages.report_image') }}"
                                                                                         loading="lazy"
                                                                                         class="border rounded me-2 mb-2"
                                                                                         style="width: 100px; height: 100px; object-fit: cover;">
@@ -601,18 +607,22 @@
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-border p-2"
                                                                         style="font-size: 12px"
-                                                                        data-bs-dismiss="modal">ปิด</button>
+                                                                        data-bs-dismiss="modal">
+                                                                        {{ __('messages.close') }}
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 @endif
+
                                                 <div class="modal fade" id="confirmLeaveModal-{{ $activity['id'] }}"
                                                     tabindex="-1" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title">ยืนยันการยกเลิกกิจกรรม</h5>
+                                                                <h5 class="modal-title">
+                                                                    {{ __('messages.cancel_join') }}</h5>
                                                                 <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal"></button>
                                                             </div>
@@ -627,7 +637,9 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
-                                                                    data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
+                                                                    data-bs-dismiss="modal">
+                                                                    {{ __('messages.cancel') }}
+                                                                </button>
                                                                 <button type="button" class="btn btn-danger"
                                                                     onclick="document.getElementById('leaveForm-{{ $activity['id'] }}').submit()">
                                                                     {{ __('messages.confirm') }}
@@ -674,8 +686,9 @@
                                                 </div>
                                                 <div>
                                                     <small><i class="bi bi-calendar-event"></i>
-                                                        <span>วันที่รายงาน:
-                                                            {{ \Carbon\Carbon::parse($report->create_date)->format('d/m/Y') }}</span></small>
+                                                        <span>{{ __('messages.report_date') }}:
+                                                            {{ \Carbon\Carbon::parse($report->create_date)->format('d/m/Y') }}</span>
+                                                    </small>
                                                 </div>
                                             </div>
                                             <div class="col-12">
@@ -684,7 +697,7 @@
                                                     data-bs-target="#viewReportModal-{{ $index }}"
                                                     style="font-size: 12px">
                                                     <i class="bi bi-eye"></i>
-                                                    <span>{{__('messages.view_report')}}</span>
+                                                    <span>{{ __('messages.view_report') }}</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -699,15 +712,16 @@
                                                         data-bs-dismiss="modal"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <p class="mb-1"><strong>รายงานวันที่:</strong>
+                                                    <p class="mb-1">
+                                                        <strong>{{ __('messages.report_date') }}:</strong>
                                                         {{ \Carbon\Carbon::parse($report->create_date)->format('d/m/Y - H:i') }}
                                                     </p>
-                                                    <p class="mb-1"><strong>หมวดหมู่:</strong>
+                                                    <p class="mb-1"><strong>{{ __('messages.category') }}:</strong>
                                                         {{ $report->events_group->{$lang} }}</p>
-                                                    <p class="mb-1"><strong>ประเภท:</strong>
+                                                    <p class="mb-1"><strong>{{ __('messages.type') }}:</strong>
                                                         {{ $report->events_type->{$lang} }}</p>
                                                     <p class="mb-1 text-break">
-                                                        <strong>รายละเอียด:</strong>
+                                                        <strong>{{ __('messages.details') }}:</strong>
                                                         {{ $report->detail_report }}
                                                     </p>
 
@@ -717,7 +731,7 @@
                                                                 <a href="{{ checkImageUrl('storage/images/reports/' . $img) }}"
                                                                     target="_blank">
                                                                     <img src="{{ checkImageUrl('storage/images/reports/' . $img) }}"
-                                                                        alt="Report Image"
+                                                                        alt="{{ __('messages.report_image') }}"
                                                                         class="border rounded me-2 mb-2"
                                                                         loading="lazy"
                                                                         style="width: 100px; height: 100px; object-fit: cover;">
@@ -728,7 +742,9 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-border p-2"
-                                                        style="font-size: 12px" data-bs-dismiss="modal">ปิด</button>
+                                                        style="font-size: 12px" data-bs-dismiss="modal">
+                                                        {{ __('messages.close') }}
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -739,10 +755,8 @@
                                         <p class="text-muted mt-3">{{ __('messages.no_report_yet') }}</p>
                                     </div>
                                 @endforelse
-
                             </div>
                         @endif
-
                     </div>
                 </div>
             </div>
@@ -754,11 +768,9 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">
-                            เปลี่ยนรหัสผ่าน
-                        </h5>
+                        <h5 class="modal-title">{{ __('messages.change_password') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                            aria-label="{{ __('messages.close') }}"></button>
                     </div>
                     <div class="modal-body">
                         <form action="{{ route('profile.update') }}" method="post" id="editPasswordForm">
@@ -773,36 +785,40 @@
                                 @if ($hasPassword)
                                     <div class="col-12">
                                         <div class="form-field">
-                                            <label>รหัสผ่านปัจจุบัน <span style="color:red">*</span></label>
+                                            <label>{{ __('messages.current_password') }} <span
+                                                    style="color:red">*</span></label>
                                             <input class="form-control password" type="password"
                                                 name="current_password" required />
                                         </div>
                                     </div>
                                 @endif
-
                             </div>
                             <div class="row">
                                 <div class="col-xl-6 col-sm-6 col-12">
                                     <div class="form-field">
-                                        <label>รหัสผ่านใหม่<span style="color:red">*</span></label>
-                                        <input class="form-control password" class="block mt-1 w-full"
-                                            type="password" name="new_password" required />
+                                        <label>{{ __('messages.new_password') }} <span
+                                                style="color:red">*</span></label>
+                                        <input class="form-control password" type="password" name="new_password"
+                                            required />
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-sm-6 col-12">
                                     <div class="form-field">
-                                        <label>ยืนยันรหัสผ่าน <span style="color:red">*</span></label>
-                                        <input class="form-control password" class="block mt-1 w-full"
-                                            type="password" name="confirm_password" required />
+                                        <label>{{ __('messages.confirm_password') }} <span
+                                                style="color:red">*</span></label>
+                                        <input class="form-control password" type="password" name="confirm_password"
+                                            required />
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn p-2" style="font-size: 12px"
-                            onclick="document.getElementById('editPasswordForm').submit()">Save changes</button>
-                        <button type="button" class="btn btn-border btn p-2" style="font-size: 12px"
+                        <button type="button" class="btn p-2" style="font-size: 12px"
+                            onclick="document.getElementById('editPasswordForm').submit()">
+                            {{ __('messages.save_changes') }}
+                        </button>
+                        <button type="button" class="btn btn-border p-2" style="font-size: 12px"
                             data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
                     </div>
                 </div>
@@ -815,11 +831,9 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">
-                            แก้ไขข้อมูลส่วนบุคคล
-                        </h5>
+                        <h5 class="modal-title">{{ __('messages.edit_profile') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                            aria-label="{{ __('messages.close') }}"></button>
                     </div>
                     <div class="modal-body">
                         <form action="{{ route('profile.update') }}" id="editProfileForm" method="POST">
@@ -828,64 +842,68 @@
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="form-field">
-                                        <label>ชื่อ (ภาษาไทย) <span style="color:red">*</span></label>
-                                        <input class="form-control password" class="block mt-1 w-full" type="text"
-                                            name="fname_th" required value="{{ $user->fname_th ?? '' }}" />
+                                        <label>{{ __('messages.first_name_th') }} <span
+                                                style="color:red">*</span></label>
+                                        <input class="form-control" type="text" name="fname_th" required
+                                            value="{{ $user->fname_th ?? '' }}" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-field">
-                                        <label>นามสกุล (ภาษาไทย) <span style="color:red">*</span></label>
-                                        <input class="form-control password" class="block mt-1 w-full" type="text"
-                                            name="lname_th" required value="{{ $user->lname_th ?? '' }}" />
+                                        <label>{{ __('messages.last_name_th') }} <span
+                                                style="color:red">*</span></label>
+                                        <input class="form-control" type="text" name="lname_th" required
+                                            value="{{ $user->lname_th ?? '' }}" />
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 col-md-6">
                                     <div class="form-field">
-                                        <label>ชื่อ (ภาษาอังกฤษ) <span style="color:red">*</span></label>
-                                        <input class="form-control password" class="block mt-1 w-full" type="text"
-                                            name="fname_en" required value="{{ $user->fname_en ?? '' }}" />
+                                        <label>{{ __('messages.first_name_en') }} <span
+                                                style="color:red">*</span></label>
+                                        <input class="form-control" type="text" name="fname_en" required
+                                            value="{{ $user->fname_en ?? '' }}" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-field">
-                                        <label>นามสกุล (ภาษาอังกฤษ) <span style="color:red">*</span></label>
-                                        <input class="form-control password" class="block mt-1 w-full" type="text"
-                                            name="lname_en" required value="{{ $user->lname_en ?? '' }}" />
+                                        <label>{{ __('messages.last_name_en') }} <span
+                                                style="color:red">*</span></label>
+                                        <input class="form-control" type="text" name="lname_en" required
+                                            value="{{ $user->lname_en ?? '' }}" />
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12 col-md-12 col-lg-4">
                                     <div class="form-field">
-                                        <label>เลขบัตรประชาชน <span style="color:red">*</span></label>
-                                        <input type="text" name="citizen_id"
-                                            class="form-control block mt-1 w-full" value="{{ $user->idcard ?? '' }}"
+                                        <label>{{ __('messages.citizen_id') }} <span
+                                                style="color:red">*</span></label>
+                                        <input type="text" name="citizen_id" class="form-control"
+                                            value="{{ $user->idcard ?? '' }}"
                                             {{ !empty($user->idcard) ? 'disabled' : '' }} required />
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-12 col-lg-4">
                                     <div class="form-field">
-                                        <label>E-mail</label>
-                                        <input class="form-control password" class="block mt-1 w-full" type="text"
-                                            name="email" value="{{ $user->email ?? '' }}" />
+                                        <label>{{ __('messages.email') }}</label>
+                                        <input class="form-control" type="text" name="email"
+                                            value="{{ $user->email ?? '' }}" />
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-12 col-lg-4">
                                     <div class="form-field">
-                                        <label>เบอร์โทรศัพท์</label>
-                                        <input class="form-control password" class="block mt-1 w-full" type="text"
-                                            name="phone" value="{{ $user->phone ?? '' }}" />
+                                        <label>{{ __('messages.phone') }}</label>
+                                        <input class="form-control" type="text" name="phone"
+                                            value="{{ $user->phone ?? '' }}" />
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                {{-- จังหวัด --}}
                                 <div class="col-12 col-md-12 col-lg-4">
                                     <div class="form-field">
-                                        <label>จังหวัด <span style="color:red">*</span></label>
+                                        <label>{{ __('messages.province') }} <span style="color:red">*</span></label>
                                         <select name="province_id" id="province" class="form-select"
                                             style="height:50px" required>
                                             <option disabled {{ empty($user->provinces->id) ? 'selected' : '' }}>
@@ -900,11 +918,9 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                {{-- อำเภอ --}}
                                 <div class="col-12 col-md-12 col-lg-4">
                                     <div class="form-field">
-                                        <label>อำเภอ <span style="color:red">*</span></label>
+                                        <label>{{ __('messages.district') }} <span style="color:red">*</span></label>
                                         <select name="district_id" id="district" class="form-select"
                                             style="height:50px" required>
                                             <option disabled {{ empty($user->district_id) ? 'selected' : '' }}>
@@ -927,11 +943,10 @@
                                         </select>
                                     </div>
                                 </div>
-
-                                {{-- ตำบล --}}
                                 <div class="col-12 col-md-12 col-lg-4">
                                     <div class="form-field">
-                                        <label>ตำบล <span style="color:red">*</span></label>
+                                        <label>{{ __('messages.sub_district') }} <span
+                                                style="color:red">*</span></label>
                                         <select name="sub_district_id" id="sub-district" class="form-select"
                                             style="height:50px" required>
                                             <option disabled {{ empty($user->districts->id) ? 'selected' : '' }}>
@@ -958,19 +973,20 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-field">
-                                        <label>ที่อยู่ <span style="color:red">*</span></label>
-                                        <input class="form-control password" class="block mt-1 w-full" type="text"
-                                            name="address" required value="{{ $user->address_th ?? '' }}" />
+                                        <label>{{ __('messages.address') }} <span style="color:red">*</span></label>
+                                        <input class="form-control" type="text" name="address" required
+                                            value="{{ $user->address_th ?? '' }}" />
                                     </div>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" style="font-size: 12px"
-                            onclick="document.getElementById('editProfileForm').submit()" class="btn p-2">Save
-                            changes</button>
-                        <button type="button" class="btn btn-border p2" style="font-size: 12px"
+                        <button type="button" class="btn p-2" style="font-size: 12px"
+                            onclick="document.getElementById('editProfileForm').submit()">
+                            {{ __('messages.save_changes') }}
+                        </button>
+                        <button type="button" class="btn btn-border p-2" style="font-size: 12px"
                             data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
                     </div>
                 </div>
@@ -983,11 +999,9 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">
-                            แก้ไขรูปโปรไฟล์
-                        </h5>
+                        <h5 class="modal-title">{{ __('messages.edit_profile_picture') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                            aria-label="{{ __('messages.close') }}"></button>
                     </div>
                     <div class="modal-body">
                         <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data"
@@ -999,16 +1013,16 @@
                                     <div
                                         style="position: relative; width: 100%; height: 525px; overflow: hidden; border: 1px solid #ccc; border-radius: 8px; cursor: pointer;">
                                         <img src="{{ $userImage }}" id="imagePreview"
-                                            style="width: 100%; height: 100%; object-fit: cover;" alt="myprofile">
+                                            style="width: 100%; height: 100%; object-fit: cover;"
+                                            alt="{{ __('messages.profile_picture') }}">
                                     </div>
-
                                     <input type="file" name="profile_pic" id="inputImage" accept="image/*"
                                         style="margin-top: 10px;" class="form-control">
                                 </div>
                                 <div class="col-12 col-md-12 col-lg-6">
                                     <p>
-                                        <strong>หมายเหตุ</strong> รูปหน้าตรง ไม่สวมแว่นกันแดด ไม่สวมหมวก
-                                        หรือมีสิ่งปิดบังใบหน้า
+                                        <strong>{{ __('messages.note') }}</strong>
+                                        {{ __('messages.profile_picture_note') }}
                                     </p>
                                 </div>
                             </div>
@@ -1016,7 +1030,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn p-2" style="font-size: 12px"
-                            onclick="document.getElementById('editProfilePicForm').submit()">Save changes</button>
+                            onclick="document.getElementById('editProfilePicForm').submit()">
+                            {{ __('messages.save_changes') }}
+                        </button>
                         <button type="button" class="btn btn-border p-2" style="font-size: 12px"
                             data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
                     </div>
@@ -1030,14 +1046,11 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">
-                            แก้ไขข้อมูลความเชี่ยวชาญ
-                        </h5>
+                        <h5 class="modal-title">{{ __('messages.edit_skills') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                            aria-label="{{ __('messages.close') }}"></button>
                     </div>
                     <div class="modal-body">
-
                         <form action="{{ route('profile.update') }}" method="POST" id="editSkillForm">
                             @csrf
                             @method('PUT')
@@ -1047,7 +1060,6 @@
                                 if (isset($user->skill_lv1)) {
                                     foreach ($user->skill_lv1 as $lv1) {
                                         foreach ($lv1['lv2'] as $lv2_id => $lv2) {
-                                            // แปลง BSONDocument → array ถ้าจำเป็น
                                             if ($lv2 instanceof \MongoDB\Model\BSONDocument) {
                                                 $lv2 = (array) $lv2;
                                             }
@@ -1066,7 +1078,7 @@
                                         $lv2_list = $lv1['lv2'] ?? [];
                                     @endphp
                                     <li class="accordion-item section-bgc">
-                                        <div class="accordion-trigger">{{ $lv1['name_th'] ?? '' }}</div>
+                                        <div class="accordion-trigger">{{ $lv1['name_' . $lang] ?? '' }}</div>
                                         <div class="accordion-content content">
                                             @foreach ($lv2_list as $lv2_id => $lv2)
                                                 @php
@@ -1086,14 +1098,13 @@
                                     </li>
                                 @endforeach
                             </ul>
-
                         </form>
-
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn p-2" style="font-size: 12px"
-                            onclick="document.getElementById('editSkillForm').submit()">Save changes</button>
+                            onclick="document.getElementById('editSkillForm').submit()">
+                            {{ __('messages.save_changes') }}
+                        </button>
                         <button type="button" class="btn btn-border p-2" style="font-size: 12px"
                             data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
                     </div>
@@ -1102,32 +1113,28 @@
         </div>
     @endif
 
-
     @if (session('user') && $user->id == session('user.id'))
         <div class="modal fade" id="editJobModal" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">
-                            แก้ไขความเชี่ยวชาญอื่นๆ
-                        </h5>
+                        <h5 class="modal-title">{{ __('messages.edit_other_expertise') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                            aria-label="{{ __('messages.close') }}"></button>
                     </div>
                     <div class="modal-body">
-
                         <form action="{{ route('profile.update') }}" method="POST" id="editJobForm">
                             @csrf
                             @method('PUT')
-
-                            <textarea name="job" id="job" class="form-control" rows="10" placeholder="ความเชี่ยวชาญอื่นๆ...">{!! $user->job ?? '' !!}</textarea>
+                            <textarea name="job" id="job" class="form-control" rows="10"
+                                placeholder="{{ __('messages.other_expertise_placeholder') }}">{!! $user->job ?? '' !!}</textarea>
                         </form>
-
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn p-2" style="font-size: 12px"
-                            onclick="document.getElementById('editJobForm').submit()">Save changes</button>
+                            onclick="document.getElementById('editJobForm').submit()">
+                            {{ __('messages.save_changes') }}
+                        </button>
                         <button type="button" class="btn btn-border p-2" style="font-size: 12px"
                             data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
                     </div>
@@ -1141,28 +1148,24 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">
-                            แก้ไขประวัติการทำงานด้านอาสาสมัคร
-                        </h5>
+                        <h5 class="modal-title">{{ __('messages.edit_volunteer_experience') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                            aria-label="{{ __('messages.close') }}"></button>
                     </div>
                     <div class="modal-body">
-
                         <form action="{{ route('profile.update') }}" method="POST" id="editExperienceForm">
                             @csrf
                             @method('PUT')
-
                             <textarea name="experience" id="experience" class="form-control" rows="10"
-                                placeholder="ประวัติการทำงานด้านอาสาสมัคร...">{!! $user->experience ?? '' !!}</textarea>
+                                placeholder="{{ __('messages.volunteer_experience_placeholder') }}">{!! $user->experience ?? '' !!}</textarea>
                         </form>
-
                     </div>
-
                     <div class="modal-footer">
-                        <button type="button" class="btn"
-                            onclick="document.getElementById('editExperienceForm').submit()">Save changes</button>
-                        <button type="button" class="btn btn-border"
+                        <button type="button" class="btn p-2" style="font-size: 12px"
+                            onclick="document.getElementById('editExperienceForm').submit()">
+                            {{ __('messages.save_changes') }}
+                        </button>
+                        <button type="button" class="btn btn-border p-2" style="font-size: 12px"
                             data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
                     </div>
                 </div>
@@ -1175,27 +1178,23 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">
-                            แก้ไขประวัติการทำงานด้านอาสาสมัคร
-                        </h5>
+                        <h5 class="modal-title">{{ __('messages.edit_training_history') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                            aria-label="{{ __('messages.close') }}"></button>
                     </div>
                     <div class="modal-body">
-
                         <form action="{{ route('profile.update') }}" method="POST" id="editTrainingForm">
                             @csrf
                             @method('PUT')
-
                             <textarea name="training" id="training" class="form-control" rows="10"
-                                placeholder="ประวัติการทำงานด้านอาสาสมัคร...">{!! $user->training ?? '' !!}</textarea>
+                                placeholder="{{ __('messages.training_history_placeholder') }}">{!! $user->training ?? '' !!}</textarea>
                         </form>
-
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn p-2" style="font-size: 12px"
-                            onclick="document.getElementById('editTrainingForm').submit()">Save changes</button>
+                            onclick="document.getElementById('editTrainingForm').submit()">
+                            {{ __('messages.save_changes') }}
+                        </button>
                         <button type="button" class="btn btn-border p-2" style="font-size: 12px"
                             data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
                     </div>
@@ -1209,29 +1208,26 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">
-                            เพิ่มรายงานผลการปฎิบัติงาน
-                        </h5>
+                        <h5 class="modal-title">{{ __('messages.add_activity_report') }}</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+                            aria-label="{{ __('messages.close') }}"></button>
                     </div>
                     <div class="modal-body">
                         <form action="{{ route('report.submit') }}" method="POST" enctype="multipart/form-data"
                             id="addReportForm">
                             @csrf
                             <div class="row">
-                                <!-- กิจกรรม -->
                                 <div class="col-12">
-                                    <label>หัวข้อรายงาน</label>
-                                    <input type="text" name="title" placeholder="หัวข้อรายงาน"
+                                    <label>{{ __('messages.report_title') }}</label>
+                                    <input type="text" name="title"
+                                        placeholder="{{ __('messages.report_title_placeholder') }}"
                                         class="form-control" required>
                                 </div>
-
-                                <!-- หมวดหมู่ -->
                                 <div class="col-md-6">
-                                    <label>หมวดหมู่</label>
+                                    <label>{{ __('messages.category') }}</label>
                                     <select name="group_id" class="form-select" required style="height: 50px">
-                                        <option value="" disabled selected>-- เลือกหมวดหมู่ --</option>
+                                        <option value="" disabled selected>{{ __('messages.select_category') }}
+                                        </option>
                                         @foreach ($eventGroups as $group)
                                             <option value="{{ $group['id'] }}">
                                                 {{ $group['group_' . $lang] }}
@@ -1239,12 +1235,11 @@
                                         @endforeach
                                     </select>
                                 </div>
-
-                                <!-- ประเภท -->
                                 <div class="col-md-6">
-                                    <label>ประเภท</label>
+                                    <label>{{ __('messages.type') }}</label>
                                     <select name="type_id" class="form-select" required style="height: 50px">
-                                        <option value="" disabled selected>-- เลือกประเภท --</option>
+                                        <option value="" disabled selected>{{ __('messages.select_type') }}
+                                        </option>
                                         @foreach ($eventTypes as $type)
                                             <option value="{{ $type['id'] }}">
                                                 {{ $type['type_' . $lang] }}
@@ -1252,13 +1247,13 @@
                                         @endforeach
                                     </select>
                                 </div>
-
                                 <div class="col-12">
-                                    <label>รายงานผลการปฎิบัติงาน</label>
-                                    <textarea name="report" class="form-control" rows="10" placeholder="รายงานผลการปฎิบัติงาน" required></textarea>
+                                    <label>{{ __('messages.activity_report') }}</label>
+                                    <textarea name="report" class="form-control" rows="10"
+                                        placeholder="{{ __('messages.activity_report_placeholder') }}" required></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <label>รูปภาพ</label>
+                                    <label>{{ __('messages.images') }}</label>
                                     <input type="file" name="images[]" class="form-control" accept="image/*"
                                         multiple onchange="previewImages(event, 'newReport')">
                                 </div>
@@ -1266,14 +1261,13 @@
                             </div>
                         </form>
                     </div>
-
                     <div class="modal-footer">
                         <button type="button" class="btn p-2" style="font-size: 12px" value="submit"
-                            name="status" onclick="document.getElementById('addReportForm').submit()">Save and send
-                            report</button>
+                            name="status" onclick="document.getElementById('addReportForm').submit()">
+                            {{ __('messages.save_and_send_report') }}
+                        </button>
                         <button type="button" class="btn btn-border p-2" style="font-size: 12px"
-                            data-bs-dismiss="modal">
-                            {{ __('messages.cancel') }}</button>
+                            data-bs-dismiss="modal">{{ __('messages.cancel') }}</button>
                     </div>
                 </div>
             </div>
@@ -1485,15 +1479,15 @@
                                         <div class="col-12 col-md-4 d-flex justify-content-end">
                                             ${activity.joined
                                                 ? `<p class="text-success text-center mb-0" style="font-size:12px">
-                                                            <i class="bi bi-check-circle"></i> ${translations.already_joined}
-                                                        </p>`
+                                                                            <i class="bi bi-check-circle"></i> ${translations.already_joined}
+                                                                        </p>`
                                                 : `<form action="/activities/join" method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="activity_id" value="${activity.id}">
-                                                            <button type="submit" class="btn btn-primary p-2" style="font-size:12px">
-                                                                <i class="bi bi-box-arrow-in-right"></i> ${translations.join_activity}
-                                                            </button>
-                                                        </form>`
+                                                                            @csrf
+                                                                            <input type="hidden" name="activity_id" value="${activity.id}">
+                                                                            <button type="submit" class="btn btn-primary p-2" style="font-size:12px">
+                                                                                <i class="bi bi-box-arrow-in-right"></i> ${translations.join_activity}
+                                                                            </button>
+                                                                        </form>`
                                             }
                                         </div>
                                     </div>
