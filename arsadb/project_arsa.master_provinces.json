@@ -1,0 +1,1232 @@
+[{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2d4"
+  },
+  "id": 1,
+  "code": "10",
+  "name_th": "กรุงเทพมหานคร",
+  "name_en": "Bangkok",
+  "codename_th": "กท",
+  "codename_en": "BKK",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "02-357-3580-7",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2d5"
+  },
+  "id": 2,
+  "code": "11",
+  "name_th": "สมุทรปราการ",
+  "name_en": "Samut Prakan",
+  "codename_th": "สป",
+  "codename_en": "SPK",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-2183-1005",
+  "link": "https://samutprakan.mots.go.th/"
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2d6"
+  },
+  "id": 3,
+  "code": "12",
+  "name_th": "นนทบุรี",
+  "name_en": "Nonthaburi",
+  "codename_th": "นบ",
+  "codename_en": "NBI",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-2589-5479",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2d7"
+  },
+  "id": 4,
+  "code": "13",
+  "name_th": "ปทุมธานี",
+  "name_en": "Pathum Thani",
+  "codename_th": "ปท",
+  "codename_en": "PTE",
+  "geography_id": 2,
+  "name_author": "แสงจันทร์  แก้วประทุมรัสมี",
+  "img_sign": "PTE.png",
+  "number": "0-2904-6503 , 0-2581-2773",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2d8"
+  },
+  "id": 5,
+  "code": "14",
+  "name_th": "พระนครศรีอยุธยา",
+  "name_en": "Phra Nakhon Si Ayutthaya",
+  "codename_th": "อย",
+  "codename_en": "AYA",
+  "geography_id": 2,
+  "name_author": "นายวิรัติ  แข็งขัน",
+  "img_sign": "AYA_1.png",
+  "number": "0-3590-2719",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2d9"
+  },
+  "id": 6,
+  "code": "15",
+  "name_th": "อ่างทอง",
+  "name_en": "Ang Thong",
+  "codename_th": "อท",
+  "codename_en": "ATG",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3561-0113",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2da"
+  },
+  "id": 7,
+  "code": "16",
+  "name_th": "ลพบุรี",
+  "name_en": "Loburi",
+  "codename_th": "ลบ",
+  "codename_en": "LRI",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3641-1132",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2db"
+  },
+  "id": 8,
+  "code": "17",
+  "name_th": "สิงห์บุรี",
+  "name_en": "Sing Buri",
+  "codename_th": "สห",
+  "codename_en": "SBR",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3651-0683 , 0-3650-7175",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2dc"
+  },
+  "id": 9,
+  "code": "18",
+  "name_th": "ชัยนาท",
+  "name_en": "Chai Nat",
+  "codename_th": "ชน",
+  "codename_en": "CNT",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5641-2684",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2dd"
+  },
+  "id": 10,
+  "code": "19",
+  "name_th": "สระบุรี",
+  "name_en": "Saraburi",
+  "codename_th": "สบ",
+  "codename_en": "SRI",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3634-0767",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2de"
+  },
+  "id": 11,
+  "code": "20",
+  "name_th": "ชลบุรี",
+  "name_en": "Chon Buri",
+  "codename_th": "ชบ",
+  "codename_en": "CBI",
+  "geography_id": 5,
+  "name_author": "นางอำไพ ศักดานุกูลจิต สไลวินสกี",
+  "img_sign": "CBI.png",
+  "number": "0-3827-4284",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2df"
+  },
+  "id": 12,
+  "code": "21",
+  "name_th": "ระยอง",
+  "name_en": "Rayong",
+  "codename_th": "รย",
+  "codename_en": "RYG",
+  "geography_id": 5,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3861-8968",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2e0"
+  },
+  "id": 13,
+  "code": "22",
+  "name_th": "จันทบุรี",
+  "name_en": "Chanthaburi",
+  "codename_th": "จบ",
+  "codename_en": "CTI",
+  "geography_id": 5,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3932-5945",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2e1"
+  },
+  "id": 14,
+  "code": "23",
+  "name_th": "ตราด",
+  "name_en": "Trat",
+  "codename_th": "ตร",
+  "codename_en": "TRT",
+  "geography_id": 5,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3952-3369,039-516-041-4",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2e2"
+  },
+  "id": 15,
+  "code": "24",
+  "name_th": "ฉะเชิงเทรา",
+  "name_en": "Chachoengsao",
+  "codename_th": "ฉช",
+  "codename_en": "CCO",
+  "geography_id": 5,
+  "name_author": null,
+  "img_sign": null,
+  "number": "038-514812",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2e3"
+  },
+  "id": 16,
+  "code": "25",
+  "name_th": "ปราจีนบุรี",
+  "name_en": "Prachin Buri",
+  "codename_th": "ปจ",
+  "codename_en": "PRI",
+  "geography_id": 5,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3747-1658 ต่อ 9",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2e4"
+  },
+  "id": 17,
+  "code": "26",
+  "name_th": "นครนายก",
+  "name_en": "Nakhon Nayok",
+  "codename_th": "นย",
+  "codename_en": "NYK",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3731-3283 ต่อ 0",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2e5"
+  },
+  "id": 18,
+  "code": "27",
+  "name_th": "สระแก้ว",
+  "name_en": "Sa Kaeo",
+  "codename_th": "สก",
+  "codename_en": "SKW",
+  "geography_id": 5,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3742-5031",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2e6"
+  },
+  "id": 19,
+  "code": "30",
+  "name_th": "นครราชสีมา",
+  "name_en": "Nakhon Ratchasima",
+  "codename_th": "นม",
+  "codename_en": "NMA",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4425-2444",
+  "link": "https://nakhonratchasima.mots.go.th/"
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2e7"
+  },
+  "id": 20,
+  "code": "31",
+  "name_th": "บุรีรัมย์",
+  "name_en": "Buri Ram",
+  "codename_th": "บร",
+  "codename_en": "BRM",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4466-6528",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2e8"
+  },
+  "id": 21,
+  "code": "32",
+  "name_th": "สุรินทร์",
+  "name_en": "Surin",
+  "codename_th": "สร",
+  "codename_en": "SRN",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4451-5832",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2e9"
+  },
+  "id": 22,
+  "code": "33",
+  "name_th": "ศรีสะเกษ",
+  "name_en": "Si Sa Ket",
+  "codename_th": "ศก",
+  "codename_en": "SSK",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4561-1840",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2ea"
+  },
+  "id": 23,
+  "code": "34",
+  "name_th": "อุบลราชธานี",
+  "name_en": "Ubon Ratchathani",
+  "codename_th": "อบ",
+  "codename_en": "UBN",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4525-2714",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2eb"
+  },
+  "id": 24,
+  "code": "35",
+  "name_th": "ยโสธร",
+  "name_en": "Yasothon",
+  "codename_th": " ยส",
+  "codename_en": "YST ",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4575-6710",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2ec"
+  },
+  "id": 25,
+  "code": "36",
+  "name_th": "ชัยภูมิ",
+  "name_en": "Chaiyaphum",
+  "codename_th": "ชย",
+  "codename_en": "CPM",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4481-1218",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2ed"
+  },
+  "id": 26,
+  "code": "37",
+  "name_th": "อำนาจเจริญ",
+  "name_en": "Amnat Charoen",
+  "codename_th": "อจ",
+  "codename_en": "ACR",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4545-1152",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2ee"
+  },
+  "id": 27,
+  "code": "39",
+  "name_th": "หนองบัวลำภู",
+  "name_en": "Nong Bua Lam Phu",
+  "codename_th": "นภ",
+  "codename_en": "NBP",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4231-2890",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2ef"
+  },
+  "id": 28,
+  "code": "58",
+  "name_th": "ขอนแก่น",
+  "name_en": "Khon Kaen",
+  "codename_th": "ขก",
+  "codename_en": "KKN",
+  "geography_id": 1,
+  "name_author": null,
+  "img_sign": null,
+  "number": "043-221-050",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2f0"
+  },
+  "id": 29,
+  "code": "40",
+  "name_th": "อุดรธานี",
+  "name_en": "Udon Thani",
+  "codename_th": "อด",
+  "codename_en": "UDN",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4234-8353",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2f1"
+  },
+  "id": 30,
+  "code": "41",
+  "name_th": "เลย",
+  "name_en": "Loei",
+  "codename_th": "ลย",
+  "codename_en": "LEI",
+  "geography_id": 3,
+  "name_author": "นายศานิต ปรากฎมาก",
+  "img_sign": null,
+  "number": "0-4281-3086",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2f2"
+  },
+  "id": 31,
+  "code": "42",
+  "name_th": "หนองคาย",
+  "name_en": "Nong Khai",
+  "codename_th": "นค",
+  "codename_en": "NKI",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4241-1771",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2f3"
+  },
+  "id": 32,
+  "code": "43",
+  "name_th": "มหาสารคาม",
+  "name_en": "Maha Sarakham",
+  "codename_th": "มค",
+  "codename_en": "MKM",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4372-3346",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2f4"
+  },
+  "id": 33,
+  "code": "44",
+  "name_th": "ร้อยเอ็ด",
+  "name_en": "Roi Et",
+  "codename_th": "รอ",
+  "codename_en": "RET",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4351-5021",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2f5"
+  },
+  "id": 34,
+  "code": "45",
+  "name_th": "กาฬสินธุ์",
+  "name_en": "Kalasin",
+  "codename_th": "กส",
+  "codename_en": "KSN",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4381-1386",
+  "link": "https://kalasin.mots.go.th/"
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2f6"
+  },
+  "id": 35,
+  "code": "46",
+  "name_th": "สกลนคร",
+  "name_en": "Sakon Nakhon",
+  "codename_th": "สน",
+  "codename_en": "SNK",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4272-8165",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2f7"
+  },
+  "id": 36,
+  "code": "47",
+  "name_th": "นครพนม",
+  "name_en": "Nakhon Phanom",
+  "codename_th": "นพ",
+  "codename_en": "NPM",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4251-6337",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2f8"
+  },
+  "id": 37,
+  "code": "48",
+  "name_th": "มุกดาหาร",
+  "name_en": "Mukdahan",
+  "codename_th": "มห",
+  "codename_en": "MDH",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4261-1306",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2f9"
+  },
+  "id": 38,
+  "code": "49",
+  "name_th": "เชียงใหม่",
+  "name_en": "Chiang Mai",
+  "codename_th": "ชม",
+  "codename_en": "CMI",
+  "geography_id": 1,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5311-2325 ต่อ 11",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2fa"
+  },
+  "id": 39,
+  "code": "50",
+  "name_th": "ลำพูน",
+  "name_en": "Lamphun",
+  "codename_th": "ลพ",
+  "codename_en": "LPN",
+  "geography_id": 1,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5356-1430",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2fb"
+  },
+  "id": 40,
+  "code": "51",
+  "name_th": "ลำปาง",
+  "name_en": "Lampang",
+  "codename_th": "ลป",
+  "codename_en": "LPG",
+  "geography_id": 1,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5422-6919,0-5422-6920",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2fc"
+  },
+  "id": 41,
+  "code": "52",
+  "name_th": "อุตรดิตถ์",
+  "name_en": "Uttaradit",
+  "codename_th": "อต",
+  "codename_en": "UTT",
+  "geography_id": 1,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5547-9862",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2fd"
+  },
+  "id": 42,
+  "code": "53",
+  "name_th": "แพร่",
+  "name_en": "Phrae",
+  "codename_th": "พร",
+  "codename_en": "PRE",
+  "geography_id": 1,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5464-6149",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2fe"
+  },
+  "id": 43,
+  "code": "54",
+  "name_th": "น่าน",
+  "name_en": "Nan",
+  "codename_th": "นน",
+  "codename_en": "NAN",
+  "geography_id": 1,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5471-6434,054-771-458-9",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c2ff"
+  },
+  "id": 44,
+  "code": "55",
+  "name_th": "พะเยา",
+  "name_en": "Phayao",
+  "codename_th": "พย",
+  "codename_en": "PYO",
+  "geography_id": 1,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5488-7210",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c300"
+  },
+  "id": 45,
+  "code": "56",
+  "name_th": "เชียงราย",
+  "name_en": "Chiang Rai",
+  "codename_th": "ชร",
+  "codename_en": "CRI",
+  "geography_id": 1,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5202-9211",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c301"
+  },
+  "id": 46,
+  "code": "57",
+  "name_th": "แม่ฮ่องสอน",
+  "name_en": "Mae Hong Son",
+  "codename_th": "มส",
+  "codename_en": "MSN",
+  "geography_id": 1,
+  "name_author": null,
+  "img_sign": null,
+  "number": "053-611146",
+  "link": "https://maehongson.mots.go.th/"
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c302"
+  },
+  "id": 47,
+  "code": "60",
+  "name_th": "นครสวรรค์",
+  "name_en": "Nakhon Sawan",
+  "codename_th": "นว",
+  "codename_en": "NSN",
+  "geography_id": 2,
+  "name_author": "นายเสริมศักดิ์  วงศ์วิเศษ",
+  "img_sign": "NSN.png",
+  "number": "0-5688-3356",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c303"
+  },
+  "id": 48,
+  "code": "61",
+  "name_th": "อุทัยธานี",
+  "name_en": "Uthai Thani",
+  "codename_th": "อน",
+  "codename_en": "UTI",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5650-3090",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c304"
+  },
+  "id": 49,
+  "code": "62",
+  "name_th": "กำแพงเพชร",
+  "name_en": "Kamphaeng Phet",
+  "codename_th": "กพ",
+  "codename_en": "KPT",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5571-4029",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c305"
+  },
+  "id": 50,
+  "code": "63",
+  "name_th": "ตาก",
+  "name_en": "Tak",
+  "codename_th": "ตก",
+  "codename_en": "TAK",
+  "geography_id": 4,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5551-4729",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c306"
+  },
+  "id": 51,
+  "code": "64",
+  "name_th": "สุโขทัย",
+  "name_en": "Sukhothai",
+  "codename_th": "สท",
+  "codename_en": "STI",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5561-0502, 055-610-481-2",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c307"
+  },
+  "id": 52,
+  "code": "65",
+  "name_th": "พิษณุโลก",
+  "name_en": "Phitsanulok",
+  "codename_th": "พล",
+  "codename_en": "PLK",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5532-1280,0-5532-1276",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c308"
+  },
+  "id": 53,
+  "code": "66",
+  "name_th": "พิจิตร",
+  "name_en": "Phichit",
+  "codename_th": "พจ",
+  "codename_en": "PCT",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5603-9859",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c309"
+  },
+  "id": 54,
+  "code": "67",
+  "name_th": "เพชรบูรณ์",
+  "name_en": "Phetchabun",
+  "codename_th": "พช",
+  "codename_en": "PNB",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-5673-7094 ต่อ 5",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c30a"
+  },
+  "id": 55,
+  "code": "70",
+  "name_th": "ราชบุรี",
+  "name_en": "Ratchaburi",
+  "codename_th": "รบ",
+  "codename_en": "RBR",
+  "geography_id": 4,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3232-2028",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c30b"
+  },
+  "id": 56,
+  "code": "71",
+  "name_th": "กาญจนบุรี",
+  "name_en": "Kanchanaburi",
+  "codename_th": "กจ",
+  "codename_en": "KRI",
+  "geography_id": 4,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3452-0335, 0-3452-0089",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c30c"
+  },
+  "id": 57,
+  "code": "72",
+  "name_th": "สุพรรณบุรี",
+  "name_en": "Suphan Buri",
+  "codename_th": "สพ",
+  "codename_en": "SPB",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3552-8356,0-3555-5498",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c30d"
+  },
+  "id": 58,
+  "code": "73",
+  "name_th": "นครปฐม",
+  "name_en": "Nakhon Pathom",
+  "codename_th": "นฐ",
+  "codename_en": "NPT",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3431-0868",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c30e"
+  },
+  "id": 59,
+  "code": "74",
+  "name_th": "สมุทรสาคร",
+  "name_en": "Samut Sakhon",
+  "codename_th": "สค",
+  "codename_en": "SKN",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3444-0796",
+  "link": "https://samutsakhon.mots.go.th/"
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c30f"
+  },
+  "id": 60,
+  "code": "75",
+  "name_th": "สมุทรสงคราม",
+  "name_en": "Samut Songkhram",
+  "codename_th": "สส",
+  "codename_en": "SKM",
+  "geography_id": 2,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3471-7213",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c310"
+  },
+  "id": 61,
+  "code": "76",
+  "name_th": "เพชรบุรี",
+  "name_en": "Phetchaburi",
+  "codename_th": "พบ",
+  "codename_en": "PBI",
+  "geography_id": 4,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3270-6621,0-3270-6622",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c311"
+  },
+  "id": 62,
+  "code": "77",
+  "name_th": "ประจวบคีรีขันธ์",
+  "name_en": "Prachuap Khiri Khan",
+  "codename_th": "ปข",
+  "codename_en": "PKN",
+  "geography_id": 4,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-3261-1543",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c312"
+  },
+  "id": 63,
+  "code": "80",
+  "name_th": "นครศรีธรรมราช",
+  "name_en": "Nakhon Si Thammarat",
+  "codename_th": "นศ",
+  "codename_en": "NST",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7534-2621",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c313"
+  },
+  "id": 64,
+  "code": "81",
+  "name_th": "กระบี่",
+  "name_en": "Krabi",
+  "codename_th": "กบ",
+  "codename_en": "KBI",
+  "geography_id": 6,
+  "name_author": "นายสุรัตน์ จรณโยธิน",
+  "img_sign": "KBI.png",
+  "number": "0-7566-3246",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c314"
+  },
+  "id": 65,
+  "code": "82",
+  "name_th": "พังงา",
+  "name_en": "Phangnga",
+  "codename_th": "พง",
+  "codename_en": "PNA",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7645-0912-3",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c315"
+  },
+  "id": 66,
+  "code": "83",
+  "name_th": "ภูเก็ต",
+  "name_en": "Phuket",
+  "codename_th": "ภก",
+  "codename_en": "PKT",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7621-7054",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c316"
+  },
+  "id": 67,
+  "code": "84",
+  "name_th": "สุราษฎร์ธานี",
+  "name_en": "Surat Thani",
+  "codename_th": "สฎ",
+  "codename_en": "SNI",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7728-3612",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c317"
+  },
+  "id": 68,
+  "code": "85",
+  "name_th": "ระนอง",
+  "name_en": "Ranong",
+  "codename_th": "รน",
+  "codename_en": "RNG",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7781-0695",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c318"
+  },
+  "id": 69,
+  "code": "86",
+  "name_th": "ชุมพร",
+  "name_en": "Chumphon",
+  "codename_th": "ชพ",
+  "codename_en": "CPN",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7751-1730",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c319"
+  },
+  "id": 70,
+  "code": "90",
+  "name_th": "สงขลา",
+  "name_en": "Songkhla",
+  "codename_th": "สข",
+  "codename_en": "SKA",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7431-1573",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c31a"
+  },
+  "id": 71,
+  "code": "91",
+  "name_th": "สตูล",
+  "name_en": "Satun",
+  "codename_th": "สต",
+  "codename_en": "STN",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7471-1225",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c31b"
+  },
+  "id": 72,
+  "code": "92",
+  "name_th": "ตรัง",
+  "name_en": "Trang",
+  "codename_th": "ตง",
+  "codename_en": "TRG",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7557-0541",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c31c"
+  },
+  "id": 73,
+  "code": "93",
+  "name_th": "พัทลุง",
+  "name_en": "Phatthalung",
+  "codename_th": "พท",
+  "codename_en": "PLG",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7467-1800",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c31d"
+  },
+  "id": 74,
+  "code": "94",
+  "name_th": "ปัตตานี",
+  "name_en": "Pattani",
+  "codename_th": "ปน",
+  "codename_en": "PTN",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7346-0115",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c31e"
+  },
+  "id": 75,
+  "code": "95",
+  "name_th": "ยะลา",
+  "name_en": "Yala",
+  "codename_th": "ยล",
+  "codename_en": "YLA",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7321-3722",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c31f"
+  },
+  "id": 76,
+  "code": "96",
+  "name_th": "นราธิวาส",
+  "name_en": "Narathiwat",
+  "codename_th": "นธ",
+  "codename_en": "NWT",
+  "geography_id": 6,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-7353-2162,0-7353-2167",
+  "link": null
+},
+{
+  "_id": {
+    "$oid": "68403a349ac6a8fa8002c320"
+  },
+  "id": 77,
+  "code": "38",
+  "name_th": "บึงกาฬ",
+  "name_en": "buogkan",
+  "codename_th": "บก",
+  "codename_en": "BKN",
+  "geography_id": 3,
+  "name_author": null,
+  "img_sign": null,
+  "number": "0-4249-2471",
+  "link": null
+}]

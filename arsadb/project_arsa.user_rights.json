@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b030"
+  },
+  "id": 1,
+  "rights_th": "ผู้ดูแลระบบ",
+  "rights_en": "Super Admin",
+  "access_rights": "All",
+  "create_date": "2025-05-07 10:02:46",
+  "create_by": 1
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b031"
+  },
+  "id": 2,
+  "rights_th": "ทกจ.",
+  "rights_en": "Admin",
+  "access_rights": "content,volunteers,report,profile",
+  "create_date": "2025-05-07 10:11:32",
+  "create_by": 1
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b032"
+  },
+  "id": 3,
+  "rights_th": "อาสาสมัคร",
+  "rights_en": "User",
+  "access_rights": "profile,activities",
+  "create_date": "2025-05-07 10:11:32",
+  "create_by": 1
+}]

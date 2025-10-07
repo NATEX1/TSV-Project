@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Services\MongoService;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,5 +28,9 @@ class AppServiceProvider extends ServiceProvider
             $contact = $mongo->findOne('contact');
             $view->with('contact', $contact);
         }); */
+
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
     }
 }
