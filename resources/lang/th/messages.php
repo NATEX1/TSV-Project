@@ -231,4 +231,10 @@ return [
     'report_title_placeholder' => 'กรอกหัวข้อรายงาน',
     'select_type' => '-- เลือกประเภท --',
     'save_and_send_report' => 'บันทึกและส่งรายงาน',
+    'search_name_placeholder' => 'กรอกชื่อเพื่อค้นหา',
+    'select_province' => '---- เลือกจังหวัด ----',
+    'no_users_found' => 'ไม่พบข้อมูลผู้ใช้',
+    'previous' => 'ก่อนหน้า',
+    'next' => 'ถัดไป',
+    'ellipsis' => '…',
 ];

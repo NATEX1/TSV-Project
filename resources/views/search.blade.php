@@ -1,5 +1,4 @@
 <x-layout>
-
     <!-- Begin bread crumbs -->
     <nav class="bread-crumbs">
         <div class="container">
@@ -27,24 +26,26 @@
                     </div>
                 </div>
 
-                <form action="{{ url('search') }}" method="GET" id="kt_sign_up_form">
-
+                <form action="{{ route('search') }}" method="GET" id="kt_sign_up_form">
                     <div class="row gutters-default">
                         <div class="col-xl-6 col-sm-6 col-12">
                             <div class="form-field">
                                 <label for="contact-name">{{ __('messages.name') }}</label>
-                                <input type="text" placeholder="{{ __('messages.name') }}" class="form-field-input"
-                                    name="name" value="" autocomplete="off">
+                                <input type="text" placeholder="{{ __('messages.search_name_placeholder') }}"
+                                    class="form-field-input" name="name" value="{{ $name ?? '' }}"
+                                    autocomplete="off">
                             </div>
                         </div>
                         <div class="col-xl-6 col-sm-6 col-12">
                             <div class="form-field">
                                 <label for="contact-province">{{ __('messages.province') }}</label>
                                 <select name="province" class="form-select" style="height:50px">
-                                    <option selected value="">---- {{ __('messages.select') }} ----</option>
+                                    <option value="" {{ empty($province) ? 'selected' : '' }}>
+                                        {{ __('messages.select_province') }}
+                                    </option>
                                     @foreach ($provinces as $prov)
                                         <option value="{{ $prov->id }}"
-                                            {{ isset($province) && $province == $prov->id ? 'selected' : '' }}>
+                                            {{ $province == $prov->id ? 'selected' : '' }}>
                                             {{ $prov['name_' . app()->getLocale()] }}
                                         </option>
                                     @endforeach
@@ -66,10 +67,9 @@
                                                     @if ($lv2['lv1_id'] == $lv1['id'])
                                                         <div class="form-check">
                                                             <input class="form-check-input" type="checkbox"
-                                                                {{ !empty($skills) && in_array($lv2['id'], $skills) ? 'checked' : '' }}
-                                                                name="option[]" value="{{ $lv2['id'] }}">
-                                                            <label
-                                                                class="form-check-label">{{ $lv2['name_' . $lang] }}</label>
+                                                                name="option[]" value="{{ $lv2['id'] }}"
+                                                                {{ in_array($lv2['id'], $skills ?? []) ? 'checked' : '' }}>
+                                                            <label class="form-check-label">{{ $lv2['name_' . $lang] }}</label>
                                                         </div>
                                                     @endif
                                                 @endforeach
@@ -81,10 +81,9 @@
                         </div>
                     </div>
 
-                    <br>
-                    <div class="section-btns justify-content-center">
+                    <div class="section-btns justify-content-center mt-4">
                         <button type="submit" class="btn btn-with-icon btn-w240 ripple">
-                            <span>{{ __('messages.search_volunteers') }}</span>
+                            <span>{{ __('messages.search') }}</span>
                         </button>
                     </div>
                 </form>
@@ -112,18 +111,16 @@
                             <div class="reviews-item item-style">
                                 <div class="reviews-item-header">
                                     <div class="reviews-item-img">
-                                        <img data-src="{{ checkImageUrl($img) }}" 
+                                        <img data-src="{{ checkImageUrl($img) }}"
                                             src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-                                            alt="">
+                                            alt="{{ __('messages.profile_picture') }}">
                                     </div>
                                     <div class="reviews-item-info">
                                         <h4 class="reviews-item-name item-heading">
                                             {{ $user['fname_' . $lang] }}&nbsp;&nbsp;{{ $user['lname_' . $lang] }}
                                         </h4>
-
                                         @if (!empty($user->tsv_id))
-                                            <i class="material-icons"
-                                                style="font-size:16px; color:#555;">badge_outline</i>
+                                            <i class="material-icons" style="font-size:16px; color:#555;">badge_outline</i>
                                             <span>{{ $user->tsv_id }}</span>
                                         @endif
                                     </div>
@@ -133,54 +130,64 @@
                     </div>
                 @empty
                     <div class="col-12 text-center">
-                        <p>ไม่พบข้อมูลผู้ใช้</p>
+                        <p>{{ __('messages.no_users_found') }}</p>
                     </div>
                 @endforelse
 
-                <div class="col-12">
-                    <nav class="pagination">
-                        @php
-                            $start = max($page - 2, 1);
-                            $end = min($page + 2, $totalPages);
-                        @endphp
-
-                        <ul class="pagination-list">
-                            <li class="{{ $page == 1 ? 'disabled' : '' }}">
-                                <a href="{{ $page == 1 ? '#!' : url('search?page=' . ($page - 1)) }}">
-                                    <i class="material-icons md-24">chevron_left</i>
-                                </a>
-                            </li>
-
-                            @if ($start > 1)
-                                <li><a href="{{ url('search?page=1') }}">1</a></li>
-                                @if ($start > 2)
-                                    <li>…</li>
-                                @endif
-                            @endif
-
-                            @for ($i = $start; $i <= $end; $i++)
-                                <li class="{{ $i == $page ? 'active' : '' }}">
-                                    <a
-                                        href="{{ $i == $page ? '#!' : url('search?page=' . $i) }}">{{ $i }}</a>
+                @if ($paginator->hasPages())
+                    <div class="col-12">
+                        <nav class="pagination d-flex justify-content-center mt-4">
+                            <ul class="pagination-list">
+                                <!-- Previous Page -->
+                                <li class="{{ $paginator->onFirstPage() ? 'disabled' : '' }}">
+                                    <a href="{{ $paginator->previousPageUrl() }}" 
+                                       aria-label="{{ __('messages.previous') }}">
+                                        <i class="material-icons md-24">chevron_left</i>
+                                    </a>
                                 </li>
-                            @endfor
 
-                            @if ($end < $totalPages)
-                                @if ($end < $totalPages - 1)
-                                    <li>…</li>
+                                <!-- First Page -->
+                                @if ($paginator->currentPage() > 3)
+                                    <li>
+                                        <a href="{{ $paginator->url(1) }}">1</a>
+                                    </li>
+                                    @if ($paginator->currentPage() > 4)
+                                        <li class="pagination-ellipsis">
+                                            <span>{{ __('messages.ellipsis') }}</span>
+                                        </li>
+                                    @endif
                                 @endif
-                                <li><a href="{{ url('search?page=' . $totalPages) }}">{{ $totalPages }}</a></li>
-                            @endif
 
-                            <li class="{{ $page == $totalPages ? 'disabled' : '' }}">
-                                <a href="{{ $page == $totalPages ? '#!' : url('search?page=' . ($page + 1)) }}">
-                                    <i class="material-icons md-24">chevron_right</i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+                                <!-- Page Numbers -->
+                                @foreach ($paginator->getUrlRange(max(1, $paginator->currentPage() - 2), min($paginator->lastPage(), $paginator->currentPage() + 2)) as $page => $url)
+                                    <li class="{{ $paginator->currentPage() == $page ? 'active' : '' }}">
+                                        <a href="{{ $url }}">{{ $page }}</a>
+                                    </li>
+                                @endforeach
 
+                                <!-- Last Page -->
+                                @if ($paginator->currentPage() < $paginator->lastPage() - 2)
+                                    @if ($paginator->currentPage() < $paginator->lastPage() - 3)
+                                        <li class="pagination-ellipsis">
+                                            <span>{{ __('messages.ellipsis') }}</span>
+                                        </li>
+                                    @endif
+                                    <li>
+                                        <a href="{{ $paginator->url($paginator->lastPage()) }}">{{ $paginator->lastPage() }}</a>
+                                    </li>
+                                @endif
+
+                                <!-- Next Page -->
+                                <li class="{{ $paginator->hasMorePages() ? '' : 'disabled' }}">
+                                    <a href="{{ $paginator->nextPageUrl() }}" 
+                                       aria-label="{{ __('messages.next') }}">
+                                        <i class="material-icons md-24">chevron_right</i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                @endif
             </div>
         </div>
     </section>

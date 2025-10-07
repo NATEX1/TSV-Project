@@ -30,7 +30,7 @@ Route::get('/courses', [FrontController::class, 'course']);
 Route::get('/content/{id}', [FrontController::class, 'content'])->name('content');
 Route::get('/contact-us', [FrontController::class, 'contact']);
 Route::get('/news', NewController::class);
-// Route::get('/search', [FrontController::class, 'search']);
+Route::get('/search', [FrontController::class, 'search'])->name('search');
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile.show');
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');

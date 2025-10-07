@@ -187,11 +187,10 @@ class FrontController extends Controller
     }
 
 
-    /* public function search(Request $request)
+    public function search(Request $request)
     {
         $lang = app()->getLocale();
 
-        // ดึง provinces และ skills
         $provinces = $this->mongo->find('master_provinces', [], [
             'sort' => ['name_' . $lang => 1]
         ]);
@@ -202,18 +201,15 @@ class FrontController extends Controller
         ));
         $skillLv2 = iterator_to_array($this->mongo->find('skill_lv2', [], ['sort' => ['orders' => 1]]));
 
-        // ดึงค่าจากฟอร์ม
         $name = $request->input('name');
         $province = $request->input('province');
         $skills = $request->input('option', []);
         $skills = array_map('intval', $skills);
 
-        // Pagination
         $page = max(1, (int)$request->input('page', 1));
         $perPage = 9;
         $skip = ($page - 1) * $perPage;
 
-        // Filter พื้นฐาน
         $filter = [
             'status_register.4' => ['$exists' => true],
             'status_active' => 0,
@@ -233,46 +229,41 @@ class FrontController extends Controller
             $filter['provinces.id'] = (int)$province;
         }
 
-        $usersCursor = $this->mongo->find('user', $filter, [
-            'sort' => ['id' => -1],
-            'limit' => 100
-        ]);
-        $usersAll = iterator_to_array($usersCursor);
-
         if (!empty($skills)) {
-            $usersAll = array_filter($usersAll, function ($user) use ($skills) {
-                $userSkillLv2 = [];
-
-                if (!empty($user['skill_lv1'])) {
-                    foreach ($user['skill_lv1'] as $lv1) {
-                        if (!empty($lv1['lv2'])) {
-                            $lv2Array = (array) $lv1['lv2'];
-                            $userSkillLv2 = array_merge($userSkillLv2, array_keys($lv2Array));
-                        }
-                    }
-                }
-
-                return empty(array_diff($skills, array_map('intval', $userSkillLv2)));
-            });
+            $filter['skill_lv1.lv2'] = ['$in' => array_map('strval', $skills)];
         }
 
-        // Pagination หลังจากกรอง
-        $totalCount = count($usersAll);
-        $totalPages = ceil($totalCount / $perPage);
-        $users = array_slice($usersAll, $skip, $perPage);
+        $totalCount = $this->mongo->count('user', $filter);
+
+        $usersCursor = $this->mongo->find('user', $filter, [
+            'sort' => ['id' => -1],
+            'skip' => $skip,
+            'limit' => $perPage
+        ]);
+        $users = iterator_to_array($usersCursor);
+
+        $paginator = new \Illuminate\Pagination\LengthAwarePaginator(
+            $users,
+            $totalCount,
+            $perPage,
+            $page,
+            [
+                'path' => $request->url(),
+                'query' => $request->query(),
+            ]
+        );
 
         return view('search', compact(
             'provinces',
             'skillLv1',
             'skillLv2',
             'users',
-            'page',
-            'totalPages',
+            'paginator',
             'name',
             'province',
             'skills'
         ));
-    } */
+    }
 
     public function quiz()
     {

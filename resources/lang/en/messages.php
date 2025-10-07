@@ -232,4 +232,10 @@ return [
     'report_title_placeholder' => 'Enter report title',
     'select_type' => '-- Select Type --',
     'save_and_send_report' => 'Save and Send Report',
+    'search_name_placeholder' => 'Enter name to search',
+    'select_province' => '---- Select Province ----',
+    'no_users_found' => 'No users found',
+    'previous' => 'Previous',
+    'next' => 'Next',
+    'ellipsis' => '…',
 ];
