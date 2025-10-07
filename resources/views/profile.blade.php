@@ -1224,18 +1224,6 @@
                                         class="form-control" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label>{{ __('messages.category') }}</label>
-                                    <select name="group_id" class="form-select" required style="height: 50px">
-                                        <option value="" disabled selected>{{ __('messages.select_category') }}
-                                        </option>
-                                        @foreach ($eventGroups as $group)
-                                            <option value="{{ $group['id'] }}">
-                                                {{ $group['group_' . $lang] }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
                                     <label>{{ __('messages.type') }}</label>
                                     <select name="type_id" class="form-select" required style="height: 50px">
                                         <option value="" disabled selected>{{ __('messages.select_type') }}
@@ -1243,6 +1231,18 @@
                                         @foreach ($eventTypes as $type)
                                             <option value="{{ $type['id'] }}">
                                                 {{ $type['type_' . $lang] }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>{{ __('messages.category') }}</label>
+                                    <select name="group_id" class="form-select" required style="height: 50px">
+                                        <option value="" disabled selected>{{ __('messages.select_category') }}
+                                        </option>
+                                        @foreach ($eventGroups as $group)
+                                            <option value="{{ $group['id'] }}">
+                                                {{ $group['group_' . $lang] }}
                                             </option>
                                         @endforeach
                                     </select>
