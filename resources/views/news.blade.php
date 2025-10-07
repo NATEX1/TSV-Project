@@ -51,7 +51,6 @@
                                     </a>
                                     {!! $new !!}
                                 </h2>
-                                {{-- <p>{!! nl2br(\Illuminate\Support\Str::limit($item->content_en, 91)) !!}...</p> --}}
 
                                 @auth
                                     @if (auth()->user()->status == 4)
