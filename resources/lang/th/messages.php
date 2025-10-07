@@ -237,4 +237,9 @@ return [
     'previous' => 'ก่อนหน้า',
     'next' => 'ถัดไป',
     'ellipsis' => '…',
+    'no_activities_found' => 'ไม่พบข้อมูลกิจกรรม',
+    'new' => 'ใหม่',
+    'today' => 'วันนี้',
+    'week' => 'สัปดาห์',
+    'time' => 'เวลา',
 ];
