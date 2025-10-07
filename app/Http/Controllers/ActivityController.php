@@ -18,11 +18,12 @@ class ActivityController extends Controller
     }
     public function index(Request $request)
     {
-        $perPage = 12;
-        $page = $request->input('page', 1);
-        $skip = ($page - 1) * $perPage;
         $lang = app()->getLocale();
+        $perPage = 12;
+        $page = max(1, (int)$request->input('page', 1));
+        $skip = ($page - 1) * $perPage;
 
+        // Fetch activities with pagination
         $activitiesCursor = $this->mongo->find(
             'content',
             ['menusub_id' => 4],
@@ -32,44 +33,51 @@ class ActivityController extends Controller
                 'sort' => ['_id' => -1]
             ]
         );
-
         $activities = iterator_to_array($activitiesCursor);
 
+        // Fetch current user and check joined activities
         $currentUser = $this->mongo->findOne('user', ['email' => session('user.email')]);
-        $userActiveList = $currentUser['active_list'] ?? [];
+        $userActiveList = (array)$currentUser['active_list'] ?? [];
+        $activeIds = array_map(function ($active) {
+            return $active['id'] ?? null;
+        }, $userActiveList);
 
-        $activeIds = [];
-        foreach ($userActiveList as $active) {
-            if (isset($active['id'])) {
-                $activeIds[] = $active['id'];
-            }
-        }
-
+        // Add 'joined' status to activities
         $activities = array_map(function ($activity) use ($activeIds) {
             $activity['joined'] = in_array($activity['id'], $activeIds);
             return $activity;
         }, $activities);
 
+        // Prepare events for FullCalendar
         $events = array_map(function ($activity) use ($lang) {
             $start = isset($activity['start_date']) ? new DateTime($activity['start_date']) : new DateTime();
             $end = isset($activity['stop_date']) ? new DateTime($activity['stop_date']) : null;
 
             return [
-                'id'    => $activity['id'],
+                'id' => $activity['id'],
                 'title' => $activity['title_' . $lang] ?? '',
                 'start' => $start->format('Y-m-d\TH:i:s'),
-                'end'   => $end ? $end->format('Y-m-d\TH:i:s') : null,
+                'end' => $end ? $end->format('Y-m-d\TH:i:s') : null,
                 'color' => $activity['color'] ?? '#0a3d62',
             ];
         }, $activities);
 
+        // Count total documents for pagination
         $total = $this->mongo->collection('content')->countDocuments(['menusub_id' => 4]);
-        $totalPages = ceil($total / $perPage);
 
-        // dd($activities);
+        // Create LengthAwarePaginator instance
+        $paginator = new \Illuminate\Pagination\LengthAwarePaginator(
+            $activities,
+            $total,
+            $perPage,
+            $page,
+            [
+                'path' => $request->url(),
+                'query' => $request->query(),
+            ]
+        );
 
-        // ส่ง $activities ไป Blade
-        return view('activities', compact('activities', 'events', 'page', 'totalPages'));
+        return view('activities', compact('activities', 'events', 'paginator', 'lang'));
     }
 
     public function join(Request $request)

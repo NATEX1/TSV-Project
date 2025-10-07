@@ -238,4 +238,9 @@ return [
     'previous' => 'Previous',
     'next' => 'Next',
     'ellipsis' => '…',
+    'no_activities_found' => 'No activities found',
+    'new' => 'New',
+    'today' => 'Today',
+    'week' => 'Week',
+    'time' => 'Time',
 ];
