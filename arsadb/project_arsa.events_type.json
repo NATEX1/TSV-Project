@@ -1,0 +1,40 @@
+[{
+  "_id": {
+    "$oid": "685e5e6d69df7cd69ba8dd1e"
+  },
+  "id": 1,
+  "type_th": "กิจกรรมด้านการท่องเที่ยว",
+  "type_en": "Tourism",
+  "create_date": "2025-06-27 12:54:45",
+  "create_by": 1
+},
+{
+  "_id": {
+    "$oid": "685e6172c450aaa1fc0552fc"
+  },
+  "id": 2,
+  "type_th": "กิจกรรมด้านการกีฬา",
+  "type_en": "Sports",
+  "create_date": "2025-06-27 09:16:34",
+  "create_by": 1
+},
+{
+  "_id": {
+    "$oid": "685e61c3c450aaa1fc0552fd"
+  },
+  "id": 3,
+  "type_th": "กิจกรรมด้านท่องเที่ยวกีฬา",
+  "type_en": "Sports Tourism",
+  "create_date": "2025-06-27 09:17:55",
+  "create_by": 1
+},
+{
+  "_id": {
+    "$oid": "685e61dfc450aaa1fc0552fe"
+  },
+  "id": 4,
+  "type_th": "กิจกรรมด้านอื่นๆ",
+  "type_en": "ect.",
+  "create_date": "2025-06-27 09:18:23",
+  "create_by": 1
+}]

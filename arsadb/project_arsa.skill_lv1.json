@@ -1,0 +1,60 @@
+[{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b002"
+  },
+  "id": 1,
+  "name_th": "การบริการการท่องเที่ยว",
+  "name_en": "Travel Services",
+  "status": 0,
+  "orders": 1
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b003"
+  },
+  "id": 2,
+  "name_th": "การสื่อสารด้านภาษาต่างประเทศ",
+  "name_en": "Foreign Language Communication",
+  "status": 0,
+  "orders": 2
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b004"
+  },
+  "id": 3,
+  "name_th": "ความมั่นคงความปลอดภัย",
+  "name_en": "Security",
+  "status": 0,
+  "orders": 3
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b005"
+  },
+  "id": 4,
+  "name_th": "สิ่งแวดล้อม",
+  "name_en": "Environment",
+  "status": 0,
+  "orders": 4
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b006"
+  },
+  "id": 5,
+  "name_th": "ด้านดิจิทัล/การประชาสัมพันธ์",
+  "name_en": "Digital/Public Relations",
+  "status": 0,
+  "orders": 5
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b007"
+  },
+  "id": 6,
+  "name_th": "กีฬา",
+  "name_en": "Sport",
+  "status": 0,
+  "orders": 6
+}]

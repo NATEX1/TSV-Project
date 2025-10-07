@@ -29,7 +29,8 @@ class AppServiceProvider extends ServiceProvider
             $view->with('contact', $contact);
         }); */
 
-        if(app()->environment("APP_ENV") === "production"){
+
+        if (app()->environment('production')) {
             URL::forceScheme('https');
         }
     }

@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "685e5c3d69df7cd69ba8dd1c"
+  },
+  "id": 1,
+  "create_date": "2025-06-07 12:15:45",
+  "create_by": 1,
+  "group_en": "Information",
+  "group_th": "บริการข้อมูลข่าวสาร"
+},
+{
+  "_id": {
+    "$oid": "685e6941c450aaa1fc055300"
+  },
+  "id": 2,
+  "group_th": "ให้ความช่วยเหลือและอำนวยความสะดวก",
+  "group_en": "Null",
+  "create_date": "2025-06-27 09:49:53",
+  "create_by": 1
+},
+{
+  "_id": {
+    "$oid": "685e6ac5c450aaa1fc055302"
+  },
+  "id": 3,
+  "group_th": "เข้าร่วมกิจกรรมที่ก่อประโยชน์ต่อส่วนรวม",
+  "group_en": "Null",
+  "create_date": "2025-06-27 09:56:21",
+  "create_by": 1
+},
+{
+  "_id": {
+    "$oid": "685e6c59c450aaa1fc055304"
+  },
+  "id": 4,
+  "group_th": "ประสานงานปฏิบัติงานร่วมกับหน่วยงานอื่น",
+  "group_en": "Null",
+  "create_date": "2025-06-27 10:03:05",
+  "create_by": 1
+},
+{
+  "_id": {
+    "$oid": "685e6dd4c450aaa1fc055305"
+  },
+  "id": 5,
+  "group_th": "ร่วมจัดกิจกรรม",
+  "group_en": "Event",
+  "create_date": "2025-06-27 10:09:24",
+  "create_by": 1
+}]

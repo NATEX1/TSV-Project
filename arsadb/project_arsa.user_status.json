@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b033"
+  },
+  "id": 0,
+  "name_th": "สมัครใหม่",
+  "name_en": "Newcomer",
+  "color": "#ff8000"
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b034"
+  },
+  "id": 1,
+  "name_th": "ดำเนินการอบรม",
+  "name_en": "Waiting for training",
+  "color": "#ff66b3"
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b035"
+  },
+  "id": 2,
+  "name_th": "รอการประเมิน",
+  "name_en": "Waiting for exam",
+  "color": "#aa80ff"
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b036"
+  },
+  "id": 3,
+  "name_th": "รอการประเมิน (สอบไม่ผ่าน)",
+  "name_en": "Waiting for exam (fail an exam)",
+  "color": "#f54242"
+},
+{
+  "_id": {
+    "$oid": "682acf5c92fcb5c21302b037"
+  },
+  "id": 4,
+  "name_th": "ผ่านการเป็นอาสาสมัคร",
+  "name_en": "Participated",
+  "color": "#339933"
+},
+{
+  "_id": {
+    "$oid": "68aaa7af8516e3d5689ced0a"
+  },
+  "id": 5,
+  "name_th": "สิ้นสุดสภาพ",
+  "name_en": "Expired",
+  "color": "#666666"
+},
+{
+  "_id": {
+    "$oid": "68aaa9368516e3d5689ced0b"
+  },
+  "id": 6,
+  "name_th": "พ้นสภาพ",
+  "name_en": "Termination",
+  "color": "#000000"
+},
+{
+  "_id": {
+    "$oid": "68aaa9878516e3d5689ced0c"
+  },
+  "id": 7,
+  "name_th": "รอต่ออายุ",
+  "name_en": "Pending renewal",
+  "color": "#ffcc00"
+}]
