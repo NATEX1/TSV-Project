@@ -5,7 +5,7 @@
                 <div class="col-12">
                     <ul class="bread-crumbs-list">
                         <li>
-                            <a href="index.php">หน้าแรก</a>
+                            <a href="index.php">{{__('messages.home')}}</a>
                             <i class="material-icons md-18">chevron_right</i>
                         </li>
                         <li><a href="#!">{{ __('messages.about_us') }}</a></li>
@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-heading heading-center">
-                        <div class="section-subheading">รายละเอียด</div>
+                        <div class="section-subheading">{{__('messages.details')}}</div>
                         <h1>{{ __('messages.about_us') }}</h1>
                     </div>
                     <div class="content">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Services\MongoService;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class NewController extends Controller
 {
@@ -13,14 +14,14 @@ class NewController extends Controller
     {
         $this->mongo = $mongo;
     }
-    
+
     public function __invoke(Request $request)
     {
         $perPage = 12;
         $page = $request->input('page', 1);
-
         $skip = ($page - 1) * $perPage;
 
+        // Fetch data from MongoDB
         $newsCursor = $this->mongo->find(
             'content',
             [
@@ -34,10 +35,25 @@ class NewController extends Controller
             ]
         );
 
+        // Convert cursor to array
         $news = iterator_to_array($newsCursor);
 
+        // Get total count of documents
         $total = $this->mongo->collection('content')->countDocuments(['menusub_id' => 3]);
-        $totalPages = ceil($total / $perPage);
-        return view('news', compact('news', 'page', 'totalPages'));
+
+        // Create a LengthAwarePaginator instance
+        $paginator = new LengthAwarePaginator(
+            $news, 
+            $total, 
+            $perPage,
+            $page, 
+            [
+                'path' => $request->url(),
+                'query' => $request->query() 
+            ]
+        );
+
+        // Pass paginator to the view
+        return view('news', ['news' => $paginator]);
     }
 }

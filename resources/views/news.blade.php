@@ -37,7 +37,7 @@
                         <article class="news-item item-style">
                             <a href="/content/{{ $item->id }}" class="news-item-img">
                                 <img src="{{ checkImageUrl('/storage/images/content/news/' . $item->cover_img) }}"
-                                    alt="{{ $item['title_' . $lang] }}" >
+                                    alt="{{ $item['title_' . $lang] }}">
                             </a>
                             <div class="news-item-info">
                                 <div class="news-item-date">
@@ -51,19 +51,7 @@
                                     </a>
                                     {!! $new !!}
                                 </h2>
-
-                                @auth
-                                    @if (auth()->user()->status == 4)
-                                        <form action="{{ url('active?update') }}" method="post" class="text-center">
-                                            @csrf
-                                            <input type="hidden" name="active_id" value="{{ $item->_id }}">
-                                            <input type="hidden" name="status" value="0">
-                                            <button type="submit" class="btn btn-w240 ripple">
-                                                <span>Join Volunteer Activities</span>
-                                            </button>
-                                        </form>
-                                    @endif
-                                @endauth
+                                <p>{{ Str::limit(strip_tags($item['content_' . $lang]), 100) }}</p>
                             </div>
                         </article>
                     </div>
@@ -73,39 +61,43 @@
                 <div class="col-12">
                     <!-- Begin pagination -->
                     <nav class="pagination">
-                        <ul class="pagination-list">
-                            {{-- Prev --}}
-                            @if ($page == 1)
-                                <li class="pagination-item-arrow pagination-item-arrow-prev pagination-item-disabled">
-                                    <a href="#!"><i class="material-icons md-24">chevron_left</i></a>
-                                </li>
-                            @else
-                                <li class="pagination-item-arrow pagination-item-arrow-prev">
-                                    <a href="{{ url('content?page=' . ($page - 1)) }}"><i
-                                            class="material-icons md-24">chevron_left</i></a>
-                                </li>
-                            @endif
+                        @if ($news->hasPages())
+                            <ul class="pagination-list">
+                                {{-- Previous Page Link --}}
+                                @if ($news->onFirstPage())
+                                    <li
+                                        class="pagination-item-arrow pagination-item-arrow-prev pagination-item-disabled">
+                                        <a href="#!"><i class="material-icons md-24">chevron_left</i></a>
+                                    </li>
+                                @else
+                                    <li class="pagination-item-arrow pagination-item-arrow-prev">
+                                        <a href="{{ $news->previousPageUrl() }}"><i
+                                                class="material-icons md-24">chevron_left</i></a>
+                                    </li>
+                                @endif
 
-                            {{-- Page Numbers --}}
-                            @for ($i = 1; $i <= $totalPages; $i++)
-                                <li class="{{ $i == $page ? 'active' : '' }}">
-                                    <a
-                                        href="{{ $i == $page ? '#!' : url('content?page=' . $i) }}">{{ $i }}</a>
-                                </li>
-                            @endfor
+                                {{-- Page Numbers --}}
+                                @for ($i = 1; $i <= $news->lastPage(); $i++)
+                                    <li class="{{ $i == $news->currentPage() ? 'active' : '' }}">
+                                        <a
+                                            href="{{ $i == $news->currentPage() ? '#!' : $news->url($i) }}">{{ $i }}</a>
+                                    </li>
+                                @endfor
 
-                            {{-- Next --}}
-                            @if ($page == $totalPages)
-                                <li class="pagination-item-arrow pagination-item-arrow-next pagination-item-disabled">
-                                    <a href="#!"><i class="material-icons md-24">chevron_right</i></a>
-                                </li>
-                            @else
-                                <li class="pagination-item-arrow pagination-item-arrow-next">
-                                    <a href="{{ url('content?page=' . ($page + 1)) }}"><i
-                                            class="material-icons md-24">chevron_right</i></a>
-                                </li>
-                            @endif
-                        </ul>
+                                {{-- Next Page Link --}}
+                                @if ($news->hasMorePages())
+                                    <li class="pagination-item-arrow pagination-item-arrow-next">
+                                        <a href="{{ $news->nextPageUrl() }}"><i
+                                                class="material-icons md-24">chevron_right</i></a>
+                                    </li>
+                                @else
+                                    <li
+                                        class="pagination-item-arrow pagination-item-arrow-next pagination-item-disabled">
+                                        <a href="#!"><i class="material-icons md-24">chevron_right</i></a>
+                                    </li>
+                                @endif
+                            </ul>
+                        @endif
                     </nav>
                     <!-- End pagination -->
                 </div>
