@@ -167,9 +167,8 @@
                             <div class="reviews-item item-style">
                                 <div class="reviews-item-header">
                                     <div class="reviews-item-img">
-                                        <img data-src="{{ checkImageUrl($img) }}" 
-                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-                                            alt="">
+                                        <img data-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            src="{{ checkImageUrl($img) }}" alt="">
                                     </div>
                                     <div class="reviews-item-info">
                                         <h4 class="reviews-item-name item-heading">
@@ -206,8 +205,9 @@
                     <div class="col-lg-6 col-md-6 col-12 item">
                         <article class="news-item item-style">
                             <a href="/content/{{ $item->id }}" class="news-item-img">
-                                <img data-src="{{ checkImageUrl('/storage/images/content/news/' . $item->cover_img) }}"
-                                        alt="">
+                                <img src="{{ checkImageUrl('/storage/images/content/news/' . $item->cover_img) }}"
+                                    data-src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                    alt="">
                             </a>
                             <div class="news-item-info">
                                 <div class="news-item-date">
@@ -219,8 +219,7 @@
                                     </a>
                                 </h3>
                                 <div class="news-item-desc">
-                                    <p>{{ \Illuminate\Support\Str::limit(strip_tags($item['content_' . $lang]), 350) }}...
-                                    </p>
+                                    <p>{{ \Illuminate\Support\Str::limit(strip_tags($item['content_' . $lang]), 350) }}...</p>
                                 </div>
                             </div>
                         </article>
