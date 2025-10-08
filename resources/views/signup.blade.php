@@ -68,7 +68,7 @@
                                 <div class="form-field">
                                     <label>{{ __('messages.firstname_th') }} <span style="color:red">*</span>
                                         <span
-                                            style="color:#cccccc">{{ __('messages.forms_of_address_not_required') }}</span>
+                                            style="color:#cccccc">{{ __('messages.no_prefix_required') }}</span>
                                     </label>
                                     <input type="text" class="form-field-input"
                                         placeholder="{{ __('messages.firstname_th') }}" name="fname_th"
@@ -87,7 +87,7 @@
                                 <div class="form-field">
                                     <label>{{ __('messages.firstname_en') }}<span style="color:red">*</span>
                                         <span
-                                            style="color:#cccccc">{{ __('messages.forms_of_address_not_required') }}</span>
+                                            style="color:#cccccc">{{ __('messages.no_prefix_required') }}</span>
                                     </label>
                                     <input type="text" class="form-field-input"
                                         placeholder="{{ __('messages.firstname_en') }}" name="fname_en"
@@ -112,7 +112,7 @@
                                                     style="color:red">*</span></label>
                                             <input type="text" class="form-field-input"
                                                 placeholder="{{ __('messages.passport_or_identification') }}"
-                                                name="idcard" autocomplete="off" required >
+                                                name="idcard" autocomplete="off" required>
                                         </div>
                                     </div>
                                     <div class="col-6">
@@ -151,8 +151,7 @@
                                             $thaiMonths = __('messages.months');
                                         @endphp
                                         <div class="col-xl-4 col-sm-4 col-4">
-                                            <select name="month" class="form-select" style="height: 50px;"
-                                                required>
+                                            <select name="month" class="form-select" style="height: 50px;" required>
                                                 <option value="" disabled>{{ __('messages.month') }}</option>
                                                 @foreach ($thaiMonths as $num => $name)
                                                     <option value="{{ $num }}">{{ $name }}
@@ -172,10 +171,14 @@
                                                     $minYear = $currentYear - 100; // อายุ ≤ 100
                                                 @endphp
                                                 @for ($i = $maxYear; $i >= $minYear; $i--)
-                                                    <option value="{{ $i + 543 }}"
-                                                        {{ old('year') == $i + 543 ? 'selected' : '' }}>
-                                                        {{ $i + 543 }}
-                                                    </option> <!-- แสดงเป็น พ.ศ. -->
+                                                    @php
+                                                        $valueYear = $i + 543; 
+                                                        $displayYear = $lang === 'en' ? $i : $valueYear; 
+                                                    @endphp
+                                                    <option value="{{ $valueYear }}"
+                                                        {{ old('year') == $valueYear ? 'selected' : '' }}>
+                                                        {{ $displayYear }}
+                                                    </option>
                                                 @endfor
                                             </select>
                                         </div>

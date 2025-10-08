@@ -28,7 +28,7 @@ return [
     'lastname_en' => 'นามสกุล (อังกฤษ)',
     'forms_of_address_not_required' => 'ไม่ต้องระบุคำนำหน้า',
     'citizen_no' => 'เลขบัตรประชาชน',
-    'passport_or_identification' => 'พาสสปอร์ต/เลขบัตรประชาชน',
+    'passport_or_identification' => 'เลขบัตรประชาชน',
     'birth_date' => 'วัน/เดือน/ปีเกิด',
     'email_address' => 'อีเมล',
     'telephone_no' => 'หมายเลขโทรศัพท์',
