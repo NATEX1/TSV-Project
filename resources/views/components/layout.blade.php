@@ -102,7 +102,6 @@
             const acceptBtn = document.getElementById('acceptCookieBtn');
             const closeBtn = document.getElementById('closeCookiePopup');
 
-            // แสดง popup ถ้ายังไม่ยอมรับ
             if (!localStorage.getItem('cookiesAccepted')) {
                 setTimeout(() => {
                     popup.style.transform = 'translateY(0)';
@@ -114,36 +113,22 @@
                 setTimeout(() => popup.style.display = 'none', 500);
             };
 
-            // กดปุ่มยอมรับ
-            acceptBtn.addEventListener('click', function() {
+            acceptBtn.addEventListener('click', async function() {
+                let userIP = 'unknown';
+                try {
+                    const response = await fetch('https://api.ipify.org?format=json');
+                    const data = await response.json();
+                    userIP = data.ip;
+                } catch (err) {
+                    console.error('Cannot fetch IP', err);
+                }
+
+                document.cookie = `userIP=${userIP}; path=/; max-age=${60*60*24*30}`; 
                 localStorage.setItem('cookiesAccepted', 'true');
                 closePopup();
             });
 
-            // กด X ปิด popup
             closeBtn.addEventListener('click', closePopup);
-
-            /* function previewImages(event, id) {
-                const preview = document.getElementById(`preview-${id}`);
-                preview.innerHTML = "";
-                const files = event.target.files;
-
-                Array.from(files).forEach(file => {
-                    if (file.type.startsWith("image/")) {
-                        const reader = new FileReader();
-                        reader.onload = function(e) {
-                            const img = document.createElement("img");
-                            img.src = e.target.result;
-                            img.classList.add("m-1", "border", "rounded");
-                            img.style.width = "100px";
-                            img.style.height = "100px";
-                            img.style.objectFit = "cover";
-                            preview.appendChild(img);
-                        }
-                        reader.readAsDataURL(file);
-                    }
-                });
-            } */
         });
     </script>
 
@@ -151,13 +136,13 @@
 
 
 
-    <script src="{{ asset('assets/libs/lozad/lozad.min.js') }}" ></script>
-    <script src="{{ asset('assets/libs/device/device.js') }}" ></script>
-    <script src="{{ asset('assets/libs/ScrollToFixed/jquery-scrolltofixed-min.js') }}" ></script>
-    <script src="{{ asset('assets/libs/spincrement/jquery.spincrement.min.js') }}" ></script>
-    <script src="{{ asset('assets/libs/jquery-validation-1.19.3/jquery.validate.min.js') }}" ></script>
-    <script src="{{ asset('assets/js/custom.js') }}" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js" ></script>
+    <script src="{{ asset('assets/libs/lozad/lozad.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/device/device.js') }}"></script>
+    <script src="{{ asset('assets/libs/ScrollToFixed/jquery-scrolltofixed-min.js') }}"></script>
+    <script src="{{ asset('assets/libs/spincrement/jquery.spincrement.min.js') }}"></script>
+    <script src="{{ asset('assets/libs/jquery-validation-1.19.3/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script>
         const swiper = new Swiper(".bannerSwiper", {
             loop: true,

@@ -26,7 +26,7 @@ return [
     'lastname_th' => 'นามสกุล (ภาษาไทย)',
     'firstname_en' => 'ชื่อ (อังกฤษ)',
     'lastname_en' => 'นามสกุล (อังกฤษ)',
-    'forms_of_address_not_required' => 'ไม่ต้องระบุคำนำหน้า',
+    'no_prefix_required' => 'ไม่ต้องระบุคำนำหน้า',
     'citizen_no' => 'เลขบัตรประชาชน',
     'passport_or_identification' => 'เลขบัตรประชาชน',
     'birth_date' => 'วัน/เดือน/ปีเกิด',
