@@ -111,8 +111,8 @@
                             <div class="reviews-item item-style">
                                 <div class="reviews-item-header">
                                     <div class="reviews-item-img">
-                                        <img data-src="{{ checkImageUrl($img) }}"
-                                            src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+                                        <img src="{{ checkImageUrl($img) }}"
+                                            data-src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
                                             alt="{{ __('messages.profile_picture') }}">
                                     </div>
                                     <div class="reviews-item-info">
