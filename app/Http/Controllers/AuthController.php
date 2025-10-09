@@ -108,12 +108,14 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+
+        $lang = app()->getLocale();
         try {
             $googleUser = $request->session()->get('google_user', null);
 
             $request->validate([
-                'fname_th'    => 'required|string|max:255',
-                'lname_th'    => 'required|string|max:255',
+                'fname_th'    => ($lang == 'th' ? 'required|' : '') . 'string|max:255',
+                'lname_th'    => ($lang == 'th' ? 'required|' : '') . 'string|max:255',
                 'fname_en'    => 'required|string|max:255',
                 'lname_en'    => 'required|string|max:255',
                 'idcard'      => 'required|string',
@@ -206,8 +208,8 @@ class AuthController extends Controller
                 'id' => time(),
                 'consentform' => $request->consentform ?? 0,
                 'idcard' => $request->idcard ?? null,
-                'fname_th' => $request->fname_th ?? $googleUser->given_name ?? null,
-                'lname_th' => $request->lname_th ?? $googleUser->family_name ?? null,
+                'fname_th' => $request->fname_th ?? $googleUser->given_name ?? $request->fname_en ?? null,
+                'lname_th' => $request->lname_th ?? $googleUser->family_name ?? $request->lname_en ?? null,
                 'fname_en' => $request->fname_en ?? null,
                 'lname_en' => $request->lname_en ?? null,
                 'sex' => isset($request->sex) ? (int)$request->sex : null,

@@ -64,30 +64,31 @@
                         <div class="row gutters-default">
                             <h4>{{ __('messages.general_information') }}</h4>
 
-                            <div class="col-xl-6 col-sm-4 col-12">
-                                <div class="form-field">
-                                    <label>{{ __('messages.firstname_th') }} <span style="color:red">*</span>
-                                        <span
-                                            style="color:#cccccc">{{ __('messages.no_prefix_required') }}</span>
-                                    </label>
-                                    <input type="text" class="form-field-input"
-                                        placeholder="{{ __('messages.firstname_th') }}" name="fname_th"
-                                        autocomplete="off" required>
+                            @if ($lang == 'th')
+                                <div class="col-xl-6 col-sm-4 col-12">
+                                    <div class="form-field">
+                                        <label>{{ __('messages.firstname_th') }} <span style="color:red">*</span>
+                                            <span style="color:#cccccc">{{ __('messages.no_prefix_required') }}</span>
+                                        </label>
+                                        <input type="text" class="form-field-input"
+                                            placeholder="{{ __('messages.firstname_th') }}" name="fname_th"
+                                            autocomplete="off" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-6 col-sm-4 col-12">
-                                <div class="form-field">
-                                    <label>{{ __('messages.lastname_th') }} <span style="color:red">*</span></label>
-                                    <input type="text" class="form-field-input mask-phone"
-                                        placeholder="{{ __('messages.lastname_th') }}" name="lname_th"
-                                        autocomplete="off" required>
+                                <div class="col-xl-6 col-sm-4 col-12">
+                                    <div class="form-field">
+                                        <label>{{ __('messages.lastname_th') }} <span
+                                                style="color:red">*</span></label>
+                                        <input type="text" class="form-field-input mask-phone"
+                                            placeholder="{{ __('messages.lastname_th') }}" name="lname_th"
+                                            autocomplete="off" required>
+                                    </div>
                                 </div>
-                            </div>
+                            @endif
                             <div class="col-xl-6 col-sm-4 col-12">
                                 <div class="form-field">
                                     <label>{{ __('messages.firstname_en') }}<span style="color:red">*</span>
-                                        <span
-                                            style="color:#cccccc">{{ __('messages.no_prefix_required') }}</span>
+                                        <span style="color:#cccccc">{{ __('messages.no_prefix_required') }}</span>
                                     </label>
                                     <input type="text" class="form-field-input"
                                         placeholder="{{ __('messages.firstname_en') }}" name="fname_en"
@@ -172,8 +173,8 @@
                                                 @endphp
                                                 @for ($i = $maxYear; $i >= $minYear; $i--)
                                                     @php
-                                                        $valueYear = $i + 543; 
-                                                        $displayYear = $lang === 'en' ? $i : $valueYear; 
+                                                        $valueYear = $i + 543;
+                                                        $displayYear = $lang === 'en' ? $i : $valueYear;
                                                     @endphp
                                                     <option value="{{ $valueYear }}"
                                                         {{ old('year') == $valueYear ? 'selected' : '' }}>
