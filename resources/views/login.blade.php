@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password">{{ __('messages.password') }}</label>
+                            <label for="password">{{ __('messages.birth_date_or_password') }} <span style="color: #ccc">{{ __('messages.for_example_january_1_1996_is_01012539') }}</span></label>
                             <input type="password" class="form-control @error('password') is-invalid @enderror"
                                 id="password" name="password">
                             @error('password')

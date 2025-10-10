@@ -145,7 +145,12 @@ class AuthController extends Controller
                 'option.array'         => __('messages.option_array'),
             ]);
 
-            $existingUser = $this->mongo->findOne('user', ['idcard' => $request->idcard]);
+            $existingUser = $this->mongo->findOne('user', [
+                '$or' => [
+                    ['idcard' => $request->idcard],
+                    ['email' => $request->email]
+                ]
+            ]);
 
             if ($existingUser) {
                 Log::channel('user_activity')->info('Register failed: Identification is already exist', [
