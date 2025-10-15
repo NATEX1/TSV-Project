@@ -113,7 +113,7 @@ class ActivityController extends Controller
             'type' => null,
             'events_start' => $activity->start_date ?? null,
             'events_stop' => $activity->stop_date ?? null,
-            'events_type' =>  $activity->events_type ?? null,
+            'event_type' =>  $activity->event_type ?? (object)['id' => 4, 'th' => 'กิจกรรมด้านอื่นๆ', 'en' => 'ect.'],
             'id' => $activityId,
             'join_date' => now()->toDateTimeString()
         ];
