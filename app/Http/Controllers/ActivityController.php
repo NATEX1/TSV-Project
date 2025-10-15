@@ -26,7 +26,7 @@ class ActivityController extends Controller
         // Fetch activities with pagination
         $activitiesCursor = $this->mongo->find(
             'content',
-            ['menusub_id' => 4],
+            ['menusub_id' => 4, 'status' => 0],
             [
                 'skip' => $skip,
                 'limit' => $perPage,
@@ -48,6 +48,11 @@ class ActivityController extends Controller
             return $activity;
         }, $activities);
 
+        $allActivities = iterator_to_array($this->mongo->find(
+            'content',
+            ['menusub_id' => 4, 'status' => 0]
+        ));
+
         // Prepare events for FullCalendar
         $events = array_map(function ($activity) use ($lang) {
             $start = isset($activity['start_date']) ? new DateTime($activity['start_date']) : new DateTime();
@@ -60,7 +65,7 @@ class ActivityController extends Controller
                 'end' => $end ? $end->format('Y-m-d\TH:i:s') : null,
                 'color' => $activity['color'] ?? '#0a3d62',
             ];
-        }, $activities);
+        }, $allActivities);
 
         // Count total documents for pagination
         $total = $this->mongo->collection('content')->countDocuments(['menusub_id' => 4]);
@@ -108,7 +113,7 @@ class ActivityController extends Controller
             'type' => null,
             'events_start' => $activity->start_date ?? null,
             'events_stop' => $activity->stop_date ?? null,
-            'events_type' =>  null,
+            'events_type' =>  $activity->events_type ?? null,
             'id' => $activityId,
             'join_date' => now()->toDateTimeString()
         ];
