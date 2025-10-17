@@ -72,7 +72,7 @@
                                         </label>
                                         <input type="text" class="form-field-input"
                                             placeholder="{{ __('messages.firstname_th') }}" name="fname_th"
-                                            autocomplete="off" required>
+                                            autocomplete="off" required value="{{ old('fname_th') }}">
                                     </div>
                                 </div>
                                 <div class="col-xl-6 col-sm-4 col-12">
@@ -81,7 +81,7 @@
                                                 style="color:red">*</span></label>
                                         <input type="text" class="form-field-input mask-phone"
                                             placeholder="{{ __('messages.lastname_th') }}" name="lname_th"
-                                            autocomplete="off" required>
+                                            autocomplete="off" required value="{{ old('lname_th') }}">
                                     </div>
                                 </div>
                             @endif
@@ -93,7 +93,8 @@
                                     <input type="text" class="form-field-input"
                                         placeholder="{{ __('messages.firstname_en') }}" name="fname_en"
                                         autocomplete="off" required
-                                        onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) ">
+                                        onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) "
+                                        value="{{ old('fname_en') }}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-sm-4 col-12">
@@ -102,7 +103,8 @@
                                     <input type="text" class="form-field-input mask-phone"
                                         placeholder="{{ __('messages.lastname_en') }}" name="lname_en"
                                         autocomplete="off" required
-                                        onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) ">
+                                        onkeypress="return (event.charCode >= 65 && event.charCode <= 90) || (event.charCode >= 97 && event.charCode <= 122) "
+                                        value="{{ old('lname_en') }}">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-sm-4 col-12">
@@ -113,19 +115,22 @@
                                                     style="color:red">*</span></label>
                                             <input type="text" class="form-field-input"
                                                 placeholder="{{ __('messages.passport_or_identification') }}"
-                                                name="idcard" autocomplete="off" required>
+                                                name="idcard" autocomplete="off" required value="{{ old('idcard') }}">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-field">
                                             <label>{{ __('messages.sex') }}<span style="color:red">*</span></label>
                                             <select name="sex" class="form-field-input" required>
-                                                <option value="" disabled selected>
+                                                <option value="" disabled {{ old('sex') === null ? 'selected' : '' }}>
                                                     {{ __('messages.select_sex') }}
                                                 </option>
-                                                <option value="0">{{ __('messages.male') }}</option>
-                                                <option value="1">{{ __('messages.female') }}</option>
-                                                <option value="2">{{ __('messages.other') }}</option>
+                                                <option value="0" {{ old('sex') == '0' ? 'selected' : '' }}>
+                                                    {{ __('messages.male') }}</option>
+                                                <option value="1" {{ old('sex') == '1' ? 'selected' : '' }}>
+                                                    {{ __('messages.female') }}</option>
+                                                <option value="2" {{ old('sex') == '2' ? 'selected' : '' }}>
+                                                    {{ __('messages.other') }}</option>
                                             </select>
                                         </div>
                                     </div>
@@ -141,7 +146,8 @@
                                             <select name="day" class="form-select" style="height: 50px;" required>
                                                 <option value="" disabled>{{ __('messages.day') }}</option>
                                                 @for ($day = 1; $day <= 31; $day++)
-                                                    <option value="{{ $day }}">{{ $day }}
+                                                    <option value="{{ $day }}" {{ old('day') == $day ? 'selected' : '' }}>
+                                                        {{ $day }}
                                                     </option>
                                                 @endfor
                                             </select>
@@ -155,7 +161,8 @@
                                             <select name="month" class="form-select" style="height: 50px;" required>
                                                 <option value="" disabled>{{ __('messages.month') }}</option>
                                                 @foreach ($thaiMonths as $num => $name)
-                                                    <option value="{{ $num }}">{{ $name }}
+                                                    <option value="{{ $num }}" {{ old('month') == $num ? 'selected' : '' }}>
+                                                        {{ $name }}
                                                     </option>
                                                 @endforeach
                                             </select>
@@ -202,7 +209,8 @@
                                     <label>{{ __('messages.telephone_no') }}</label>
                                     <input type="text" class="form-field-input mask-phone" minlength="10"
                                         maxlength="10" placeholder="{{ __('messages.telephone_no') }}"
-                                        name="phone" autocomplete="off" id="contact-phone" pattern="\d+">
+                                        name="phone" autocomplete="off" id="contact-phone" pattern="\d+"
+                                        value="{{ old('phone') }}">
                                 </div>
                             </div>
 
@@ -213,7 +221,8 @@
                                         style="height:50px" required>
                                         <option selected disabled>{{ __('messages.select') }}</option>
                                         @foreach ($provinces as $province)
-                                            <option value="{{ $province->id }}">
+                                            <option value="{{ $province->id }}" 
+                                                {{ old('province_id') == $province->id ? 'selected' : '' }}>
                                                 {{ $province['name_' . $lang] }}
                                             </option>
                                         @endforeach
@@ -226,6 +235,15 @@
                                     <select name="amphure_id" id="amphure" class="form-select" style="height:50px"
                                         required>
                                         <option selected disabled>{{ __('messages.select') }}</option>
+                                        @if(old('amphure_id'))
+                                            @foreach ($districts as $district)
+                                                @if($district->id == old('amphure_id'))
+                                                    <option value="{{ $district->id }}" selected>
+                                                        {{ $district['name_' . $lang] }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
                             </div>
@@ -235,6 +253,15 @@
                                     <select name="district_id" id="district" class="form-select"
                                         style="height:50px" required>
                                         <option selected disabled>{{ __('messages.select') }}</option>
+                                        @if(old('district_id'))
+                                            @foreach ($subdistricts as $subdistrict)
+                                                @if($subdistrict->id == old('district_id'))
+                                                    <option value="{{ $subdistrict->id }}" selected>
+                                                        {{ $subdistrict['name_' . $lang] }}
+                                                    </option>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
                             </div>
@@ -243,7 +270,7 @@
                                     <label>{{ __('messages.address') }}</label>
                                     <input type="text" class="form-field-input"
                                         placeholder="{{ __('messages.address') }}" name="address"
-                                        autocomplete="off">
+                                        autocomplete="off" value="{{ old('address') }}">
                                 </div>
                             </div>
 
@@ -252,21 +279,21 @@
                                 <div class="form-field">
                                     <label>{{ __('messages.past_volunteer_work_occupations') }}</label>
                                     <textarea name="job" class="form-field-input" placeholder="{{ __('messages.past_volunteer_work_occupations') }}"
-                                        cols="30" rows="6"></textarea>
+                                        cols="30" rows="6">{{ old('job') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-field">
                                     <label>{{ __('messages.volunteer_work_experience') }}</label>
                                     <textarea name="experience" class="form-field-input" placeholder="{{ __('messages.volunteer_work_experience') }}"
-                                        cols="30" rows="6"></textarea>
+                                        cols="30" rows="6">{{ old('experience') }}</textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-field">
                                     <label>{{ __('messages.certificates_or_training') }}</label>
                                     <textarea name="training" class="form-field-input" placeholder="{{ __('messages.certificates_or_training') }}"
-                                        cols="30" rows="6"></textarea>
+                                        cols="30" rows="6">{{ old('training') }}</textarea>
                                 </div>
                             </div>
 
@@ -285,7 +312,8 @@
                                                         @if ($lv2->lv1_id == $lv1->id)
                                                             <div class="form-check">
                                                                 <input class="form-check-input" type="checkbox"
-                                                                    name="option[]" value="{{ $lv2->id }}">
+                                                                    name="option[]" value="{{ $lv2->id }}"
+                                                                    {{ is_array(old('option')) && in_array($lv2->id, old('option')) ? 'checked' : '' }}>
                                                                 <label
                                                                     class="form-check-label">{{ $lv2['name_' . $lang] }}</label>
                                                             </div>
@@ -321,31 +349,53 @@
         const amphureSelect = document.getElementById('amphure');
         const districtSelect = document.getElementById('district');
 
-        provinceSelect.addEventListener('change', function() {
-            const pid = parseInt(this.value);
+        // ฟังก์ชันสำหรับโหลดข้อมูลอำเภอตามจังหวัดที่เลือก
+        function loadAmphures(pid) {
             const filteredAmphures = amphures.filter(a => parseInt(a.province_id) === pid);
 
             amphureSelect.innerHTML = '<option selected disabled>{{ __('messages.select') }}</option>';
             filteredAmphures.forEach(a => {
                 amphureSelect.innerHTML +=
-                    `<option value="${a.id}">${a.name_{{ $lang }}}</option>`;
+                    `<option value="${a.id}" ${a.id == {{ old('amphure_id', 0) }} ? 'selected' : ''}>${a.name_{{ $lang }}}</option>`;
             });
+        }
 
-            districtSelect.innerHTML = '<option selected disabled>{{ __('messages.select') }}</option>';
-        });
-
-        amphureSelect.addEventListener('change', function() {
-            const aid = parseInt(this.value);
+        // ฟังก์ชันสำหรับโหลดข้อมูลตำบลตามอำเภอที่เลือก
+        function loadDistricts(aid) {
             const filteredDistricts = districts.filter(d => parseInt(d.amphure_id) === aid);
 
             districtSelect.innerHTML = '<option selected disabled>{{ __('messages.select') }}</option>';
             filteredDistricts.forEach(d => {
                 districtSelect.innerHTML +=
-                    `<option value="${d.id}">${d.name_{{ $lang }}}</option>`;
+                    `<option value="${d.id}" ${d.id == {{ old('district_id', 0) }} ? 'selected' : ''}>${d.name_{{ $lang }}}</option>`;
             });
+        }
+
+        // เมื่อโหลดหน้าเว็บเสร็จ
+        document.addEventListener('DOMContentLoaded', function() {
+            // ถ้ามีการเลือกจังหวัดไว้แล้ว (จาก old data)
+            const selectedProvinceId = {{ old('province_id', 0) }};
+            if (selectedProvinceId) {
+                loadAmphures(selectedProvinceId);
+                
+                // ถ้ามีการเลือกอำเภอไว้แล้ว
+                const selectedAmphureId = {{ old('amphure_id', 0) }};
+                if (selectedAmphureId) {
+                    loadDistricts(selectedAmphureId);
+                }
+            }
+        });
+
+        provinceSelect.addEventListener('change', function() {
+            const pid = parseInt(this.value);
+            loadAmphures(pid);
+            districtSelect.innerHTML = '<option selected disabled>{{ __('messages.select') }}</option>';
+        });
+
+        amphureSelect.addEventListener('change', function() {
+            const aid = parseInt(this.value);
+            loadDistricts(aid);
         });
     </script>
-
-
 
 </x-layout>

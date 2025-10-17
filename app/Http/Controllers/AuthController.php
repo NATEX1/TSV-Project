@@ -51,6 +51,14 @@ class AuthController extends Controller
             return redirect()->back()->with('error', __('messages.account_suspended'));
         }
 
+        if($user->user_rights != 3){
+             Log::channel('user_activity')->info('Login blocked: account suspended', [
+                'ip' => $request->ip(),
+                'username' => $user->username,
+            ]);
+            return redirect()->back()->with('error', __('messages.account_suspended'));
+        }
+
         $statusRegister = $user->status_register;
 
         // แปลงเป็น array ปกติ
@@ -151,7 +159,7 @@ class AuthController extends Controller
                     'ip' => $request->ip(),
                     'username' => 'guest',
                 ]);
-                return redirect()->back()->with('error', 'มีผู้ใช้ที่ใช้เลขบัตรประชาชนนี้อยู่แล้ว');
+                return redirect()->back()->withInput()->with('error', 'มีผู้ใช้ที่ใช้เลขบัตรประชาชนนี้อยู่แล้ว');
             }
 
             // วันเกิด

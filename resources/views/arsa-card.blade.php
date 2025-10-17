@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
         }
     </style>
 </head>
@@ -26,7 +27,7 @@
             $user_image = checkImageUrl('storage/images/user/' . $user->user_img);
         }
 
-        $author = !empty($user->name_author) ? $user->name_author : __('messages.staff');
+        $author = !empty($province->name_author) ? $province->name_author : __('messages.staff');
     @endphp
 
     <div
@@ -38,43 +39,43 @@
         {{-- รูปผู้ใช้ --}}
         <img src="{{ $user_image }}"
             style="position: absolute; top: 37%; left: 50%; transform: translate(-50%, -50%);
-            width:64px; height:64px; 
+            width: 96px; height: 96px; 
             border-radius:50%; 
             object-fit: cover;">
 
         {{-- ข้อมูลชื่อ --}}
         <div
-            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size:10px; color:black;">
+            style="position: absolute; top: 54%; left: 50%; transform: translate(-50%, -50%); font-size:10px; color:black;">
             <p style="margin-bottom:2px;">{{ $user['fname_th'] ?? '' }} &nbsp;&nbsp; {{ $user['lname_th'] ?? '' }}</p>
             <p>{{ $user['fname_en'] ?? '' }} &nbsp;&nbsp; {{ $user['lname_en'] ?? '' }}</p>
         </div>
 
         {{-- รหัส TSV --}}
         <div
-            style="position: absolute; top: 63%; left: 50%; transform: translate(-50%, -50%); font-size:10px; color:black;">
-            <p>{{ $user->tsv_id ?? '' }}</p>
+            style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); font-size:10px; color:#0f2b57; font-weight: 700;">
+            <p>{{ $user->tsv_id ?? 'BAKA09999' }}</p>
         </div>
 
         {{-- ลายมือชื่อ --}}
         <div
-            style="position: absolute; top: 74%; left: 25%; transform: translate(-50%, -50%); font-size:8px; color:black;">
+            style="position: absolute; top: 70%; left: 25%; transform: translate(-50%, -50%); font-size:8px; color:black;">
             <p>..........................</p>
         </div>
         <div
-            style="position: absolute; top: 77%; left: 25%; transform: translate(-50%, -50%); font-size:8px; color:black;">
-            <p>{{ __('messages.signature') }}</p>
+            style="position: absolute; top: 73%; left: 25%; transform: translate(-50%, -50%); font-size:8px; color:black;">
+            <p>{{ $card->text_left }}</p>
         </div>
 
         {{-- จังหวัด --}}
         <div
-            style="position: absolute; top: 80%; left: 25%; transform: translate(-50%, -50%); font-size:8px; color:black;">
+            style="position: absolute; top: 76%; left: 25%; transform: translate(-50%, -50%); font-size:8px; color:black;">
             <p>{{ __('messages.province') }} {{ $user->provinces['name_' . $lang] ?? '' }}</p>
         </div>
 
         {{-- วันหมดอายุ --}}
         @if (!empty($user->exp_date) && $user->exp_date != '0000-00-00')
             <div
-                style="position: absolute; top: 83%; left: 25%; transform: translate(-50%, -50%); font-size:8px; color:black;">
+                style="position: absolute; top: 79%; left: 25%; transform: translate(-50%, -50%); font-size:8px; color:black;">
                 <p>{{ __('messages.expiry_date') }} {{ \Carbon\Carbon::parse($user->exp_date)->format('d/m/Y') }}</p>
             </div>
         @endif
@@ -88,20 +89,24 @@
 
         {{-- ข้อมูลผู้อนุมัติ --}}
         <div
-            style="position: absolute; top: 74%; left: 70%; transform: translate(-50%, -50%); font-size:8px; color:black;">
+            style="position: absolute; top: 70%; left: 70%; transform: translate(-50%, -50%); font-size:8px; color:black;">
             <p>..........................</p>
         </div>
         <div
-            style="position: absolute; top: 77%; left: 70%; transform: translate(-50%, -50%); font-size:8px; color:black;">
+            style="position: absolute; top: 73%; left: 70%; transform: translate(-50%, -50%); font-size:8px; color:black;">
+            <p>{{ $card->text_right1 }}</p>
+        </div>
+        <div
+            style="position: absolute; top: 76%; left: 70%; transform: translate(-50%, -50%); font-size:8px; color:black;">
             <p>{{ $author }}</p>
         </div>
         <div
-            style="position: absolute; top: 80%; left: 70%; transform: translate(-50%, -50%); font-size:7px; color:black;">
-            <p>{{ __('messages.tourism_department') }}</p>
+            style="position: absolute; top: 79%; left: 70%; transform: translate(-50%, -50%); font-size:7px; color:black;">
+            <p>{{ $card->text_right2 }}</p>
         </div>
         <div
-            style="position: absolute; top: 83%; left: 70%; transform: translate(-50%, -50%); font-size:8px; color:black;">
-            <p>{{ __('messages.card_issuer') }}</p>
+            style="position: absolute; top: 82%; left: 70%; transform: translate(-50%, -50%); font-size:8px; color:black;">
+            <p>{{ $card->text_right3 }}</p>
         </div>
     </div>
 

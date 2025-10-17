@@ -149,6 +149,8 @@ class ProfileController extends Controller
             abort(404);
         }
 
+        $province = $this->mongo->findOne('master_provinces', ['id' => $user->provinces->id]);
+
         $userDate = date('Y-m-d H:i:s', strtotime($user['create_date']));
 
         $cards = iterator_to_array($this->mongo->find('card', [
@@ -160,7 +162,7 @@ class ProfileController extends Controller
 
         $card = !empty($cards) ? $cards[0] : null;
 
-        return view('arsa-card', compact('user', 'card'));
+        return view('arsa-card', compact('user', 'card', 'province'));
     }
 
 
