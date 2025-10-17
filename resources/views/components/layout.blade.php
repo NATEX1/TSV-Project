@@ -123,7 +123,7 @@
                     console.error('Cannot fetch IP', err);
                 }
 
-                document.cookie = `userIP=${userIP}; path=/; max-age=${60*60*24*30}`; 
+                document.cookie = `userIP=${userIP}; path=/; httponly; max-age=${60*60*24*30}`; 
                 localStorage.setItem('cookiesAccepted', 'true');
                 closePopup();
             });

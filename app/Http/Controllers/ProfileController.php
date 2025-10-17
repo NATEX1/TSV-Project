@@ -498,19 +498,6 @@ class ProfileController extends Controller
             true
         );
 
-        /*  // ลบ key ว่าง (optional)
-        $this->mongo->updateOne(
-            'user',
-            ['id' => intval($user['id'])],
-            [
-                '$unset' => [
-                    "report.$mainKey" => 1
-                ]
-            ],
-            [],
-            true
-        );
- */
         return redirect()->back()->with('success', 'ลบรายงานเรียบร้อยแล้ว');
     }
 
