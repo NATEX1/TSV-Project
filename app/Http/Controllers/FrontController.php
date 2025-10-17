@@ -10,12 +10,7 @@ use MongoDB\BSON\ObjectId;
 
 class FrontController extends Controller
 {
-    protected $mongo;
-
-    public function __construct(MongoService $mongo)
-    {
-        $this->mongo = $mongo;
-    }
+    
 
     public function index()
     {

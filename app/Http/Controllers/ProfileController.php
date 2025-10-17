@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\MongoService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -12,12 +11,7 @@ use Intervention\Image\Laravel\Facades\Image;
 
 class ProfileController extends Controller
 {
-    protected $mongo;
 
-    public function __construct(MongoService $mongo)
-    {
-        $this->mongo = $mongo;
-    }
     public function index(Request $request, $id = null)
     {
         $lang = app()->getLocale();
@@ -155,8 +149,20 @@ class ProfileController extends Controller
             abort(404);
         }
 
-        return view('arsa-card', compact('user'));
+        $userDate = date('Y-m-d H:i:s', strtotime($user['create_date']));
+
+        $cards = iterator_to_array($this->mongo->find('card', [
+            'create_date' => ['$lte' => $userDate] 
+        ], [
+            'sort' => ['create_date' => -1], 
+            'limit' => 1
+        ]));
+
+        $card = !empty($cards) ? $cards[0] : null;
+
+        return view('arsa-card', compact('user', 'card'));
     }
+
 
     public function searchActivities(Request $request)
     {

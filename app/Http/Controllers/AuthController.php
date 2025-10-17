@@ -11,12 +11,6 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AuthController extends Controller
 {
-    protected $mongo;
-
-    public function __construct(MongoService $mongo)
-    {
-        $this->mongo = $mongo;
-    }
 
     public function login(Request $request)
     {

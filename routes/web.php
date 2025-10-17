@@ -36,8 +36,7 @@ Route::get('/profile/{id}', [ProfileController::class, 'index'])->name('profile.
 Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 Route::post('/profile/report/{id?}', [ProfileController::class, 'report'])->name('report.submit');
 Route::delete('/profile/report/{key}', [ProfileController::class, 'deleteReport'])->name('report.delete');
-Route::get('/arsa-card', [ProfileController::class, 'showCard'])->name('arsa-card.index');
-Route::get('/arsa-card/{id}', [ProfileController::class, 'showCard'])->name('arsa-card.show');
+Route::get('/arsa-card/{id?}', [ProfileController::class, 'showCard'])->name('arsa-card.show');
 Route::get('/quiz', [FrontController::class, 'quiz'])->name('quiz');
 
 Route::get('/consent', [FrontController::class, 'consent'])->name('consent');

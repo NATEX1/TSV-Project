@@ -8,12 +8,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class NewController extends Controller
 {
-    protected $mongo;
-
-    public function __construct(MongoService $mongo)
-    {
-        $this->mongo = $mongo;
-    }
+    
 
     public function __invoke(Request $request)
     {
@@ -43,13 +38,13 @@ class NewController extends Controller
 
         // Create a LengthAwarePaginator instance
         $paginator = new LengthAwarePaginator(
-            $news, 
-            $total, 
+            $news,
+            $total,
             $perPage,
-            $page, 
+            $page,
             [
                 'path' => $request->url(),
-                'query' => $request->query() 
+                'query' => $request->query()
             ]
         );
 

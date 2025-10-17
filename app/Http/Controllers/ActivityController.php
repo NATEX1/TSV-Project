@@ -10,12 +10,7 @@ use function MongoDB\object;
 
 class ActivityController extends Controller
 {
-    protected $mongo;
-
-    public function __construct(MongoService $mongo)
-    {
-        $this->mongo = $mongo;
-    }
+    
     public function index(Request $request)
     {
         $lang = app()->getLocale();

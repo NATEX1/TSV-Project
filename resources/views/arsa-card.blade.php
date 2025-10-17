@@ -32,16 +32,21 @@
     <div
         style="position: relative; text-align: center; color: white; background-color: skyblue; max-width: 260px; width: 100%; margin: 0 auto; ">
         {{-- การ์ดพื้นหลัง --}}
-        <img src="{{ url('/storage/images/arsa_card12.png') }}" alt="arsa_card" width="260px;">
+        <img src="{{ checkImageUrl('/storage/images/card/' . $card->card_font) }}" alt="arsa_card" width="260px;"
+            style="">
 
         {{-- รูปผู้ใช้ --}}
         <img src="{{ $user_image }}"
-            style="position: absolute; top: 37%; left: 50%; transform: translate(-50%, -50%); max-width:64px; min-width:64px; min-height:99px; max-height:99px; object-fit: cover;">
+            style="position: absolute; top: 37%; left: 50%; transform: translate(-50%, -50%);
+            width:64px; height:64px; 
+            border-radius:50%; 
+            object-fit: cover;">
 
         {{-- ข้อมูลชื่อ --}}
         <div
-            style="position: absolute; top: 59%; left: 50%; transform: translate(-50%, -50%); font-size:10px; color:black;">
-            <p>{{ $user['fname_' . $lang] ?? '' }} &nbsp;&nbsp; {{ $user['lname_' . $lang] ?? '' }}</p>
+            style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size:10px; color:black;">
+            <p style="margin-bottom:2px;">{{ $user['fname_th'] ?? '' }} &nbsp;&nbsp; {{ $user['lname_th'] ?? '' }}</p>
+            <p>{{ $user['fname_en'] ?? '' }} &nbsp;&nbsp; {{ $user['lname_en'] ?? '' }}</p>
         </div>
 
         {{-- รหัส TSV --}}
