@@ -10,7 +10,7 @@ use MongoDB\BSON\ObjectId;
 
 class FrontController extends Controller
 {
-    
+
 
     public function index()
     {
@@ -225,8 +225,18 @@ class FrontController extends Controller
         }
 
         if (!empty($skills)) {
-            $filter['skill_lv1.lv2'] = ['$in' => array_map('strval', $skills)];
+            $slv2 = $this->mongo->find('skill_lv2', [
+                'id' => ['$in' => array_map('intval', $skills)]
+            ]);
+
+            $filter['$or'] = [];
+            foreach ($slv2 as $lv2) {
+                $lv1Id = $lv2['lv1_id'];
+                $lv2Id = $lv2['id'];
+                $filter['$or'][] = ['skill_lv1.' . $lv1Id . '.lv2.' . $lv2Id => ['$exists' => true]];
+            }
         }
+
 
         $totalCount = $this->mongo->count('user', $filter);
 

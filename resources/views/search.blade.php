@@ -103,7 +103,7 @@
                 @forelse ($users as $user)
                     @php
                         $img = empty($user->user_img)
-                            ? '/assets/backoffice/assets/media/avatars/blank.png'
+                            ? '/assets/media/avatars/blank.png'
                             : '/storage/images/user/' . $user->user_img;
                     @endphp
                     <div class="col-lg-4 col-md-6 col-12 item">
